@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     title: '5 razones por las que necesitas un seguro de vida hoy',
     excerpt: 'Muchas personas posponen contratar un seguro de vida sin saber que el mejor momento para hacerlo es ahora. Descubre por qué.',
     category: 'Seguro de Vida',
-    date: '15 Dic 2024',
+    date: '18 Abr 2026',
     readTime: '5 min',
     icon: '❤️',
     content: `
@@ -56,7 +56,7 @@ Más allá de la protección inmediata, el seguro de vida es un instrumento de p
     title: 'Cómo elegir el mejor seguro de salud para tu familia',
     excerpt: 'Comparar planes de salud puede ser confuso. Te explicamos los factores clave que debes considerar antes de decidir.',
     category: 'Seguro de Salud',
-    date: '10 Dic 2024',
+    date: '14 Abr 2026',
     readTime: '7 min',
     icon: '🏥',
     content: `
@@ -101,7 +101,7 @@ El mercado de seguros de salud es muy competitivo. Antes de decidirte, compara a
     title: 'Seguro de mascotas: ¿vale la pena la inversión?',
     excerpt: 'Los gastos veterinarios pueden ser inesperadamente altos. Analizamos si un seguro de mascotas es la decisión correcta.',
     category: 'Mascotas',
-    date: '5 Dic 2024',
+    date: '10 Abr 2026',
     readTime: '4 min',
     icon: '🐾',
     content: `
@@ -148,7 +148,7 @@ Un seguro básico para perros o gatos ronda los 15-40 €/mes, dependiendo de la
     title: 'Todo lo que debes saber sobre el seguro de hogar',
     excerpt: 'Tu hogar es tu activo más valioso. Aprende cómo protegerlo correctamente contra los riesgos más comunes.',
     category: 'Seguro de Hogar',
-    date: '1 Dic 2024',
+    date: '5 Abr 2026',
     readTime: '6 min',
     icon: '🏠',
     content: `
@@ -197,7 +197,7 @@ Sí, aunque alquiles, necesitas seguro de hogar. El propietario asegura el conti
     title: 'Preguntas frecuentes sobre seguros que todos tienen',
     excerpt: 'Resolvemos las dudas más comunes sobre seguros: qué es una prima, cómo tramitar una reclamación, qué cubre y qué no.',
     category: 'Educación Financiera',
-    date: '25 Nov 2024',
+    date: '28 Mar 2026',
     readTime: '8 min',
     icon: '❓',
     content: `
@@ -248,7 +248,7 @@ Si no pagas, la póliza queda en suspensión y pierdes cobertura. Si el impago s
     title: 'Cómo los seguros te ayudan a planificar tu jubilación',
     excerpt: 'Los seguros de vida con componente de ahorro son una herramienta poderosa para complementar tu pensión de jubilación.',
     category: 'Finanzas Personales',
-    date: '20 Nov 2024',
+    date: '20 Mar 2026',
     readTime: '6 min',
     icon: '💰',
     content: `
