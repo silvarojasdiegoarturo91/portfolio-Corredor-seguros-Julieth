@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
-import { timingSafeEqual } from 'crypto'
+import { timingSafeEqual, createHmac } from 'crypto'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 
 export const metadata: Metadata = {
@@ -8,6 +10,10 @@ export const metadata: Metadata = {
 }
 
 export const dynamic = 'force-dynamic'
+
+function createSessionToken(adminPassword: string): string {
+  return createHmac('sha256', adminPassword).update('admin-session-v1').digest('hex')
+}
 
 async function getLeads() {
   try {
@@ -19,32 +25,55 @@ async function getLeads() {
   }
 }
 
-function checkAuth(password: string | null): boolean {
+async function checkAuth(): Promise<boolean> {
   const adminPassword = process.env.ADMIN_PASSWORD
-  if (!adminPassword || !password) return false
+  if (!adminPassword) return false
+  const cookieStore = await cookies()
+  const token = cookieStore.get('admin_session')?.value
+  if (!token) return false
   try {
-    const a = Buffer.from(password)
-    const b = Buffer.from(adminPassword)
+    const expected = createSessionToken(adminPassword)
+    const a = Buffer.from(token)
+    const b = Buffer.from(expected)
     return a.length === b.length && timingSafeEqual(a, b)
   } catch {
     return false
   }
 }
 
-export default async function AdminPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ password?: string }>
-}) {
-  const { password: passwordParam } = await searchParams
-  const password = passwordParam || null
+async function login(formData: FormData) {
+  'use server'
+  const password = (formData.get('password') as string) || ''
+  const adminPassword = process.env.ADMIN_PASSWORD
+  if (adminPassword) {
+    try {
+      const a = Buffer.from(password)
+      const b = Buffer.from(adminPassword)
+      if (a.length === b.length && timingSafeEqual(a, b)) {
+        const token = createSessionToken(adminPassword)
+        const cookieStore = await cookies()
+        cookieStore.set('admin_session', token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'lax',
+          maxAge: 60 * 60 * 8,
+          path: '/admin',
+        })
+      }
+    } catch { /* noop */ }
+  }
+  redirect('/admin')
+}
 
-  if (!checkAuth(password)) {
+export default async function AdminPage() {
+  const authenticated = await checkAuth()
+
+  if (!authenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="bg-white rounded-xl shadow-md p-8 max-w-sm w-full mx-4">
           <h1 className="text-2xl font-bold text-gray-900 mb-6 text-center">Admin Access</h1>
-          <form method="GET">
+          <form action={login}>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Contraseña
             </label>

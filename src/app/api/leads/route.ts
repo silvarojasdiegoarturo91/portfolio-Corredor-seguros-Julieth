@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
+import { timingSafeEqual } from 'crypto'
 import { prisma } from '@/lib/prisma'
 import { sendLeadNotification } from '@/lib/email'
 
@@ -40,7 +41,17 @@ export async function GET(request: NextRequest) {
   const authHeader = request.headers.get('authorization')
   const adminPassword = process.env.ADMIN_PASSWORD
 
-  if (!adminPassword || !authHeader || authHeader !== `Bearer ${adminPassword}`) {
+  let authorized = false
+  if (adminPassword && authHeader) {
+    const expected = `Bearer ${adminPassword}`
+    try {
+      const a = Buffer.from(authHeader)
+      const b = Buffer.from(expected)
+      authorized = a.length === b.length && timingSafeEqual(a, b)
+    } catch { /* noop */ }
+  }
+
+  if (!authorized) {
     return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
   }
 

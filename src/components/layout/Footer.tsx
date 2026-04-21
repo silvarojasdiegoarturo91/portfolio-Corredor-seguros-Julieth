@@ -17,7 +17,7 @@ export function Footer() {
               Más de 10 años de experiencia brindando tranquilidad a familias españolas.
             </p>
             <div className="flex space-x-4">
-              <a href="https://wa.me/34695135678" target="_blank" rel="noopener noreferrer"
+              <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '34695135678'}`} target="_blank" rel="noopener noreferrer"
                 className="text-green-400 hover:text-green-300 transition-colors">
                 WhatsApp
               </a>
@@ -37,7 +37,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm">
-              <li>📱 +34 600 000 000</li>
+              <li>📱 +34 695 135 678</li>
               <li>✉️ julieth@juliethperezseguros.com</li>
               <li>📍 España</li>
             </ul>

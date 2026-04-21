@@ -4,7 +4,7 @@ Portfolio profesional para corredora de seguros con captura de leads, panel de a
 
 ## Stack Tecnológico
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Lenguaje**: TypeScript
 - **Estilos**: Tailwind CSS
 - **Base de Datos**: PostgreSQL + Prisma ORM
@@ -98,19 +98,20 @@ Obtener todos los leads (requiere autenticación).
 
 ## Panel de Administración
 
-Accede en `/admin?password=<ADMIN_PASSWORD>`
+Accede en `/admin`. Se abrirá un formulario de login; la contraseña se valida en el servidor y se establece una cookie de sesión `httpOnly` (válida 8 horas). La URL nunca expone la contraseña.
 
 ## Deployment con Docker
 
 ```bash
 # Construir y levantar todos los servicios
+# El servicio 'migrate' ejecuta las migraciones automáticamente antes de iniciar 'app'
 docker-compose up --build -d
 
 # Ver logs
 docker-compose logs -f app
 
-# Ejecutar migraciones
-docker-compose exec app npx prisma migrate deploy
+# Ejecutar migraciones manualmente (si es necesario)
+docker-compose run --rm migrate
 ```
 
 ## Páginas
