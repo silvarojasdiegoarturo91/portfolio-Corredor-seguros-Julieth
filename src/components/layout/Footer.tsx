@@ -17,7 +17,7 @@ export function Footer() {
               Más de 10 años de experiencia brindando tranquilidad a familias españolas.
             </p>
             <div className="flex space-x-4">
-              <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/34695135678" target="_blank" rel="noopener noreferrer"
                 className="text-green-400 hover:text-green-300 transition-colors">
                 WhatsApp
               </a>

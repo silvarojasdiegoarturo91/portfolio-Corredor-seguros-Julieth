@@ -1,7 +1,7 @@
 'use client'
 
 export function WhatsAppButton() {
-  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '34600000000'
+  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '34695135678'
   const message = encodeURIComponent('Hola Julieth, me gustaría obtener información sobre seguros.')
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
 
