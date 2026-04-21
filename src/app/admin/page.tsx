@@ -34,10 +34,9 @@ function checkAuth(password: string | null): boolean {
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: Promise<{ password?: string }>
+  searchParams: { password?: string }
 }) {
-  const params = await searchParams
-  const password = params.password || null
+  const password = searchParams.password || null
 
   if (!checkAuth(password)) {
     return (
