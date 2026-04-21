@@ -1,68 +1,13 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Artículos y consejos sobre seguros, finanzas personales y protección familiar.',
 }
-
-const blogPosts = [
-  {
-    id: 1,
-    title: '5 razones por las que necesitas un seguro de vida hoy',
-    excerpt: 'Muchas personas posponen contratar un seguro de vida sin saber que el mejor momento para hacerlo es ahora. Descubre por qué.',
-    category: 'Seguro de Vida',
-    date: '15 Dic 2024',
-    readTime: '5 min',
-    icon: '❤️',
-  },
-  {
-    id: 2,
-    title: 'Cómo elegir el mejor seguro de salud para tu familia',
-    excerpt: 'Comparar planes de salud puede ser confuso. Te explicamos los factores clave que debes considerar antes de decidir.',
-    category: 'Seguro de Salud',
-    date: '10 Dic 2024',
-    readTime: '7 min',
-    icon: '🏥',
-  },
-  {
-    id: 3,
-    title: 'Seguro de mascotas: ¿vale la pena la inversión?',
-    excerpt: 'Los gastos veterinarios pueden ser inesperadamente altos. Analizamos si un seguro de mascotas es la decisión correcta.',
-    category: 'Mascotas',
-    date: '5 Dic 2024',
-    readTime: '4 min',
-    icon: '🐾',
-  },
-  {
-    id: 4,
-    title: 'Todo lo que debes saber sobre el seguro de hogar',
-    excerpt: 'Tu hogar es tu activo más valioso. Aprende cómo protegerlo correctamente contra los riesgos más comunes.',
-    category: 'Seguro de Hogar',
-    date: '1 Dic 2024',
-    readTime: '6 min',
-    icon: '🏠',
-  },
-  {
-    id: 5,
-    title: 'Preguntas frecuentes sobre seguros que todos tienen',
-    excerpt: 'Resolvemos las dudas más comunes sobre seguros: qué es una prima, cómo tramitar una reclamación, qué cubre y qué no.',
-    category: 'Educación Financiera',
-    date: '25 Nov 2024',
-    readTime: '8 min',
-    icon: '❓',
-  },
-  {
-    id: 6,
-    title: 'Cómo los seguros te ayudan a planificar tu jubilación',
-    excerpt: 'Los seguros de vida con componente de ahorro son una herramienta poderosa para complementar tu pensión de jubilación.',
-    category: 'Finanzas Personales',
-    date: '20 Nov 2024',
-    readTime: '6 min',
-    icon: '💰',
-  },
-]
 
 const categories = ['Todos', 'Seguro de Vida', 'Seguro de Salud', 'Mascotas', 'Seguro de Hogar', 'Educación Financiera']
 
@@ -104,20 +49,25 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <Card key={post.id} hover className="flex flex-col cursor-pointer">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-4xl">{post.icon}</span>
-                  <span className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
-                    {post.category}
-                  </span>
-                </div>
-                <h2 className="text-xl font-bold text-gray-900 mb-2 flex-1">{post.title}</h2>
-                <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
-                <div className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-gray-100">
-                  <span>📅 {post.date}</span>
-                  <span>⏱ {post.readTime} lectura</span>
-                </div>
-              </Card>
+              <Link key={post.id} href={`/blog/${post.slug}`} className="block">
+                <Card hover className="flex flex-col h-full cursor-pointer">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-4xl">{post.icon}</span>
+                    <span className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
+                  <h2 className="text-xl font-bold text-gray-900 mb-2 flex-1">{post.title}</h2>
+                  <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
+                  <div className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-gray-100">
+                    <span>📅 {post.date}</span>
+                    <span>⏱ {post.readTime} lectura</span>
+                  </div>
+                  <p className="text-green-600 text-sm font-semibold mt-3 hover:text-green-700">
+                    Leer artículo →
+                  </p>
+                </Card>
+              </Link>
             ))}
           </div>
 
