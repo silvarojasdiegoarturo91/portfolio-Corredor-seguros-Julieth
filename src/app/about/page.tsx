@@ -14,7 +14,20 @@ const trustBadges = [
   { icon: '⭐', title: '5 Estrellas', desc: 'Calificación perfecta de satisfacción en nuestros clientes' },
 ]
 
-const partners = ['AXA', 'Mapfre', 'Allianz', 'Zurich', 'Generali', 'Mutua Madrileña']
+const partners = [
+  { name: 'AXA', logo: 'https://logo.clearbit.com/axa.com' },
+  { name: 'Mapfre', logo: 'https://logo.clearbit.com/mapfre.com' },
+  { name: 'Allianz', logo: 'https://logo.clearbit.com/allianz.com' },
+  { name: 'Zurich', logo: 'https://logo.clearbit.com/zurich.com' },
+  { name: 'Generali', logo: 'https://logo.clearbit.com/generali.com' },
+  { name: 'Mutua Madrileña', logo: 'https://logo.clearbit.com/mutua.es' },
+  { name: 'Sanitas', logo: 'https://logo.clearbit.com/sanitas.es' },
+  { name: 'Caser Seguros', logo: 'https://logo.clearbit.com/caser.es' },
+  { name: 'Helvetia', logo: 'https://logo.clearbit.com/helvetia.com' },
+  { name: 'Reale Seguros', logo: 'https://logo.clearbit.com/reale.es' },
+  { name: 'Línea Directa', logo: 'https://logo.clearbit.com/lineadirecta.com' },
+  { name: 'BBVA Seguros', logo: 'https://logo.clearbit.com/bbvaseguros.com' },
+]
 
 export default function AboutPage() {
   return (
@@ -101,13 +114,21 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Trabajamos con las mejores aseguradoras de España</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {partners.map((partner) => (
-              <div key={partner} className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-                <p className="font-semibold text-gray-700 text-sm">{partner}</p>
+              <div key={partner.name} className="bg-white rounded-lg p-5 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={partner.logo}
+                  alt={`Logo ${partner.name}`}
+                  className="h-12 w-auto object-contain"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+                />
+                <p className="font-semibold text-gray-700 text-sm">{partner.name}</p>
               </div>
             ))}
           </div>
+          <p className="text-center text-gray-500 mt-8 text-lg font-medium">y muchas más...</p>
         </div>
       </section>
 
