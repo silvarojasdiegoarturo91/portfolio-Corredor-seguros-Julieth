@@ -48,7 +48,7 @@ export function Navbar() {
               href="/contact"
               className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors"
             >
-              Cotizar Ahora
+              Solicitar presupuesto
             </Link>
           </div>
 
@@ -86,7 +86,7 @@ export function Navbar() {
               className="block mt-2 mx-4 bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold text-center"
               onClick={() => setIsOpen(false)}
             >
-              Cotizar Ahora
+              Solicitar presupuesto
             </Link>
           </div>
         )}

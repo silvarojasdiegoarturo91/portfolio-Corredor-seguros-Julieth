@@ -27,11 +27,11 @@ const services = [
     id: 'salud',
     icon: '🏥',
     title: 'Seguro de Salud',
-    description: 'Accede a la mejor atención médica privada sin preocuparte por los costos. Nuestros planes de salud cubren desde consultas de rutina hasta procedimientos complejos.',
+    description: 'Accede a la mejor atención médica privada sin preocuparte por los costes. Nuestros planes de salud cubren desde consultas de rutina hasta procedimientos complejos.',
     features: [
       'Hospitalización y cirugías',
       'Consultas con especialistas',
-      'Medicamentos cubiertos',
+      'Medicamentos incluidos',
       'Maternidad y pediatría',
       'Red de clínicas y hospitales',
     ],
@@ -42,7 +42,7 @@ const services = [
     id: 'mascotas',
     icon: '🐾',
     title: 'Seguro de Mascotas',
-    description: 'Tu mascota es parte de la familia y merece la mejor atención. Nuestro seguro cubre gastos veterinarios para que nunca tengas que elegir entre tu bolsillo y la salud de tu mascota.',
+    description: 'Tu mascota es parte de la familia y merece la mejor atención. Nuestro seguro cubre los gastos veterinarios para que nunca tengas que elegir entre tu economía y la salud de tu mascota.',
     features: [
       'Consultas y revisiones veterinarias',
       'Cirugías y procedimientos',
@@ -57,7 +57,7 @@ const services = [
     id: 'hogar',
     icon: '🏠',
     title: 'Seguro de Hogar',
-    description: 'Protege tu hogar y todos tus bienes contra los imprevistos de la vida. Desde incendios hasta robos, estamos aquí para que nunca pierdas lo que con tanto esfuerzo has construido.',
+    description: 'Protege tu hogar y todos tus bienes contra las contingencias de la vida. Desde incendios hasta robos, estamos aquí para que nunca pierdas lo que con tanto esfuerzo has construido.',
     features: [
       'Incendio, explosión y humo',
       'Robo y hurto de contenidos',
@@ -97,7 +97,7 @@ export default function ServicesPage() {
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{service.title}</h2>
                     <p className="text-gray-600 text-lg mb-4">{service.description}</p>
                     <Button href="/contact" variant="primary">
-                      Obtener Cotización
+                      Solicitar presupuesto
                     </Button>
                   </div>
                   <div className={index % 2 !== 0 ? 'lg:order-1' : ''}>
@@ -123,7 +123,7 @@ export default function ServicesPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">¿No sabes qué seguro necesitas?</h2>
           <p className="text-xl text-green-100 mb-8">
-            Agenda una consulta gratuita y te asesoramos según tu situación personal.
+            Solicita una consulta gratuita y te asesoramos según tu situación personal.
           </p>
           <Button href="/contact" variant="white" size="lg">
             Asesoría Gratuita

@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     name: 'Carlos Martínez',
-    text: 'Gracias al seguro de salud que Julieth me recomendó, pude cubrir una hospitalización sin preocuparme por los costos.',
+    text: 'Gracias al seguro de salud que Julieth me recomendó, pude cubrir una hospitalización sin preocuparme por los costes.',
     insurance: 'Seguro de Salud',
   },
   {
@@ -48,7 +48,7 @@ export default function HomePage() {
             {[
               { icon: '🏆', title: 'Experiencia Certificada', desc: 'Más de 10 años como mediadora certificada de seguros en España.' },
               { icon: '💬', title: 'Asesoría Personalizada', desc: 'Analizamos tu situación y te recomendamos el seguro ideal para ti.' },
-              { icon: '⚡', title: 'Respuesta Rápida', desc: 'Te respondemos en menos de 24 horas con la mejor cotización.' },
+              { icon: '⚡', title: 'Respuesta Rápida', desc: 'Te respondemos en menos de 24 horas con el mejor presupuesto.' },
             ].map((item) => (
               <Card key={item.title} className="text-center">
                 <div className="text-4xl mb-4">{item.icon}</div>
@@ -97,7 +97,7 @@ export default function HomePage() {
                 ¿Listo para proteger lo que más amas?
               </h2>
               <p className="text-xl text-green-100 mb-6">
-                Obtén una cotización gratuita en minutos. Sin compromisos, sin letra pequeña.
+                Solicita un presupuesto gratuito en minutos. Sin compromisos, sin letra pequeña.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -111,7 +111,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Cotización Gratuita</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Presupuesto gratuito</h3>
               <LeadForm />
             </div>
           </div>

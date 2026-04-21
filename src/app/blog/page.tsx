@@ -47,7 +47,7 @@ const blogPosts = [
   {
     id: 5,
     title: 'Preguntas frecuentes sobre seguros que todos tienen',
-    excerpt: 'Resolvemos las dudas más comunes sobre seguros: qué es una prima, cómo hacer un reclamo, qué cubre y qué no.',
+    excerpt: 'Resolvemos las dudas más comunes sobre seguros: qué es una prima, cómo tramitar una reclamación, qué cubre y qué no.',
     category: 'Educación Financiera',
     date: '25 Nov 2024',
     readTime: '8 min',
@@ -55,8 +55,8 @@ const blogPosts = [
   },
   {
     id: 6,
-    title: 'Cómo los seguros te ayudan a planificar tu retiro',
-    excerpt: 'Los seguros de vida con componente de ahorro son una herramienta poderosa para complementar tu pensión.',
+    title: 'Cómo los seguros te ayudan a planificar tu jubilación',
+    excerpt: 'Los seguros de vida con componente de ahorro son una herramienta poderosa para complementar tu pensión de jubilación.',
     category: 'Finanzas Personales',
     date: '20 Nov 2024',
     readTime: '6 min',

@@ -20,7 +20,7 @@ export default function ThankYouPage() {
           </h1>
           <p className="text-gray-600 text-lg mb-6">
             Hemos recibido tu solicitud. Julieth te contactará en{' '}
-            <strong className="text-green-600">menos de 24 horas</strong> con tu cotización personalizada.
+            <strong className="text-green-600">menos de 24 horas</strong> con tu presupuesto personalizado.
           </p>
 
           <div className="bg-green-50 rounded-xl p-4 mb-6">
@@ -28,7 +28,7 @@ export default function ThankYouPage() {
               ¿Necesitas respuesta inmediata? Escríbenos por WhatsApp:
             </p>
             <a
-              href="https://wa.me/34600000000?text=Hola%20Julieth%2C%20acabo%20de%20enviar%20mi%20solicitud%20de%20cotizaci%C3%B3n."
+              href="https://wa.me/34600000000?text=Hola%20Julieth%2C%20acabo%20de%20enviar%20mi%20solicitud%20de%20presupuesto."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center mt-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors w-full"

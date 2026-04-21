@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/Card'
 
 export const metadata: Metadata = {
   title: 'Contacto',
-  description: 'Contáctanos para obtener tu cotización gratuita de seguros. Respuesta en menos de 24 horas.',
+  description: 'Contáctanos para obtener tu presupuesto gratuito de seguros. Respuesta en menos de 24 horas.',
 }
 
 const contactInfo = [
@@ -70,7 +70,7 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-2">
               <Card>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Solicitar Cotización</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Solicitar presupuesto</h2>
                 <LeadForm />
               </Card>
             </div>

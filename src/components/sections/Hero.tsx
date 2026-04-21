@@ -19,7 +19,7 @@ export function Hero() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button href="/contact" variant="white" size="lg">
-              Obtener Cotización Gratis
+              Solicitar presupuesto gratuito
             </Button>
             <Button href="/services" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-700">
               Ver Servicios

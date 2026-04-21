@@ -14,7 +14,7 @@ const services = [
     id: 'salud',
     icon: '🏥',
     title: 'Seguro de Salud',
-    description: 'Accede a la mejor atención médica sin preocuparte por los costos. Planes para toda la familia.',
+    description: 'Accede a la mejor atención médica sin preocuparte por los costes. Planes para toda la familia.',
     features: ['Hospitalización', 'Cirugías', 'Medicamentos', 'Consultas especializadas'],
     color: 'text-blue-500',
   },
@@ -63,7 +63,7 @@ export function ServicesSection() {
                 ))}
               </ul>
               <Button href="/contact" variant="outline" size="sm" className="w-full">
-                Cotizar
+                Ver presupuesto
               </Button>
             </Card>
           ))}

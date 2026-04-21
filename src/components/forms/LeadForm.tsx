@@ -47,10 +47,10 @@ export function LeadForm() {
       newErrors.name = 'El nombre debe tener al menos 2 caracteres'
     }
     if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Ingresa un email válido'
+      newErrors.email = 'Introduce un email válido'
     }
     if (!formData.phone || formData.phone.length < 7) {
-      newErrors.phone = 'Ingresa un número de teléfono válido'
+      newErrors.phone = 'Introduce un número de teléfono válido'
     }
     if (!formData.insuranceType) {
       newErrors.insuranceType = 'Selecciona un tipo de seguro'
@@ -194,7 +194,7 @@ export function LeadForm() {
       </div>
 
       <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isLoading}>
-        {isLoading ? 'Enviando...' : 'Solicitar Cotización Gratuita'}
+        {isLoading ? 'Enviando...' : 'Solicitar presupuesto gratuito'}
       </Button>
 
       <p className="text-xs text-gray-500 text-center">
