@@ -18,7 +18,7 @@ const services = [
       'Invalidez total y permanente',
       'Enfermedades graves diagnosticadas',
       'Asistencia funeraria incluida',
-      'Planes desde $50.000/mes',
+      'Planes desde 50€/mes',
     ],
     color: 'bg-red-50 border-red-200',
     iconBg: 'bg-red-100',

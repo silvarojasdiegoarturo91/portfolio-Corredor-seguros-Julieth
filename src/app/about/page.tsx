@@ -4,17 +4,17 @@ import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
   title: 'Sobre Nosotros',
-  description: 'Conoce la historia de Julieth, corredora de seguros certificada con más de 10 años de experiencia.',
+  description: 'Conoce la historia de Julieth, mediadora de seguros certificada con más de 10 años de experiencia en España.',
 }
 
 const trustBadges = [
-  { icon: '🏅', title: 'Certificada', desc: 'Corredora certificada por la Superintendencia Financiera de Colombia' },
+  { icon: '🏅', title: 'Certificada', desc: 'Mediadora certificada e inscrita en el Registro de la DGSFP (Ministerio de Economía de España)' },
   { icon: '📅', title: '+10 Años', desc: 'Más de una década de experiencia en el sector asegurador' },
-  { icon: '👥', title: '+500 Clientes', desc: 'Cientos de familias protegidas en todo Colombia' },
+  { icon: '👥', title: '+500 Clientes', desc: 'Cientos de familias protegidas en toda España' },
   { icon: '⭐', title: '5 Estrellas', desc: 'Calificación perfecta de satisfacción en nuestros clientes' },
 ]
 
-const partners = ['Suramericana', 'Bolívar', 'Mapfre', 'AXA Colpatria', 'Liberty Seguros', 'Mundial Seguros']
+const partners = ['AXA', 'Mapfre', 'Allianz', 'Zurich', 'Generali', 'Mutua Madrileña']
 
 export default function AboutPage() {
   return (
@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Sobre Nosotros</h1>
           <p className="text-xl text-green-100 max-w-2xl mx-auto">
-            Conoce a Julieth y descubre por qué somos la elección de confianza de cientos de familias colombianas
+            Conoce a Julieth y descubre por qué somos la elección de confianza de cientos de familias españolas
           </p>
         </div>
       </section>
@@ -39,8 +39,8 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Soy Julieth, corredora de seguros certificada con más de 10 años de experiencia 
-                  ayudando a familias colombianas a proteger lo que más aman.
+                  Soy Julieth, mediadora de seguros certificada con más de 10 años de experiencia 
+                  ayudando a familias españolas a proteger lo que más aman.
                 </p>
                 <p>
                   Mi vocación nació cuando vi de cerca cómo una familia quedó sin apoyo financiero 
@@ -48,7 +48,7 @@ export default function AboutPage() {
                   familia tuviera que pasar por eso.
                 </p>
                 <p>
-                  Trabajo con las mejores aseguradoras del país para ofrecerte las coberturas más 
+                  Trabajo con las mejores aseguradoras del mercado para ofrecerte las coberturas más 
                   completas al mejor precio. Mi misión es simple: <strong>darte tranquilidad</strong>.
                 </p>
               </div>
@@ -64,8 +64,8 @@ export default function AboutPage() {
                   <span className="text-white text-4xl font-bold">J</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Julieth</h3>
-                <p className="text-green-600 font-semibold">Corredora de Seguros Certificada</p>
-                <p className="text-gray-600 mt-2">Colombia</p>
+                <p className="text-green-600 font-semibold">Mediadora de Seguros Certificada</p>
+                <p className="text-gray-600 mt-2">España</p>
                 <div className="mt-4 flex justify-center space-x-1">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <span key={star} className="text-yellow-400 text-xl">★</span>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Trabajamos con las mejores aseguradoras</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Trabajamos con las mejores aseguradoras de España</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {partners.map((partner) => (

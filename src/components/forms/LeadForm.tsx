@@ -147,7 +147,7 @@ export function LeadForm() {
           type="tel"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="+57 300 000 0000"
+          placeholder="+34 600 000 000"
           className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
             errors.phone ? 'border-red-400 bg-red-50' : 'border-gray-300'
           }`}

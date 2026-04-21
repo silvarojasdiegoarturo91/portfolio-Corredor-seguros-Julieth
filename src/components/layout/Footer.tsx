@@ -14,10 +14,10 @@ export function Footer() {
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Protegemos lo que más amas con soluciones de seguro personalizadas. 
-              Más de 10 años de experiencia brindando tranquilidad a familias colombianas.
+              Más de 10 años de experiencia brindando tranquilidad a familias españolas.
             </p>
             <div className="flex space-x-4">
-              <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
                 className="text-green-400 hover:text-green-300 transition-colors">
                 WhatsApp
               </a>
@@ -37,9 +37,9 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm">
-              <li>📱 +57 300 000 0000</li>
+              <li>📱 +34 600 000 000</li>
               <li>✉️ julieth@correodoreseguros.com</li>
-              <li>📍 Colombia</li>
+              <li>📍 España</li>
             </ul>
             <Link
               href="/contact"

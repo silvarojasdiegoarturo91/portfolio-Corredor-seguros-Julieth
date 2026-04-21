@@ -46,7 +46,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: '🏆', title: 'Experiencia Certificada', desc: 'Más de 10 años como corredora certificada de seguros en Colombia.' },
+              { icon: '🏆', title: 'Experiencia Certificada', desc: 'Más de 10 años como mediadora certificada de seguros en España.' },
               { icon: '💬', title: 'Asesoría Personalizada', desc: 'Analizamos tu situación y te recomendamos el seguro ideal para ti.' },
               { icon: '⚡', title: 'Respuesta Rápida', desc: 'Te respondemos en menos de 24 horas con la mejor cotización.' },
             ].map((item) => (
@@ -101,7 +101,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://wa.me/573000000000"
+                  href="https://wa.me/34600000000"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-green-400 hover:bg-green-500 text-white px-6 py-3 rounded-lg font-semibold transition-colors"

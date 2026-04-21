@@ -28,7 +28,7 @@ export default function ThankYouPage() {
               ¿Necesitas respuesta inmediata? Escríbenos por WhatsApp:
             </p>
             <a
-              href="https://wa.me/573000000000?text=Hola%20Julieth%2C%20acabo%20de%20enviar%20mi%20solicitud%20de%20cotizaci%C3%B3n."
+              href="https://wa.me/34600000000?text=Hola%20Julieth%2C%20acabo%20de%20enviar%20mi%20solicitud%20de%20cotizaci%C3%B3n."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center mt-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors w-full"

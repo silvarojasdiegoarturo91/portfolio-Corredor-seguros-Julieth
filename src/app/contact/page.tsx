@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 }
 
 const contactInfo = [
-  { icon: '📱', title: 'WhatsApp', value: '+57 300 000 0000', href: 'https://wa.me/573000000000' },
+  { icon: '📱', title: 'WhatsApp', value: '+34 600 000 000', href: 'https://wa.me/34600000000' },
   { icon: '✉️', title: 'Email', value: 'julieth@correodoreseguros.com', href: 'mailto:julieth@correodoreseguros.com' },
-  { icon: '📍', title: 'Ubicación', value: 'Colombia', href: null },
-  { icon: '🕐', title: 'Horario', value: 'Lun-Vie: 8am - 6pm', href: null },
+  { icon: '📍', title: 'Ubicación', value: 'España', href: null },
+  { icon: '🕐', title: 'Horario', value: 'Lun-Vie: 9am - 7pm', href: null },
 ]
 
 export default function ContactPage() {
@@ -57,7 +57,7 @@ export default function ContactPage() {
                 <h3 className="font-bold text-gray-900 mb-2">¿Prefieres WhatsApp?</h3>
                 <p className="text-gray-600 text-sm mb-4">Chatea directamente con Julieth</p>
                 <a
-                  href="https://wa.me/573000000000?text=Hola%20Julieth%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20seguros."
+                  href="https://wa.me/34600000000?text=Hola%20Julieth%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20seguros."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold w-full transition-colors"
