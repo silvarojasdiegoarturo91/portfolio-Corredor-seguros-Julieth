@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 const trustBadges = [
-  { icon: '🏅', title: 'Certificada', desc: 'Mediadora certificada e inscrita en el Registro de la DGSFP (Ministerio de Economía de España)' },
+  // { icon: '🏅', title: 'Certificada', desc: 'Mediadora certificada e inscrita en el Registro de la DGSFP (Ministerio de Economía de España)' },
   { icon: '📅', title: '+10 Años', desc: 'Más de una década de experiencia en el sector asegurador' },
   { icon: '👥', title: '+50 Clientes', desc: 'Cientos de familias protegidas en toda España' },
   { icon: '⭐', title: '5 Estrellas', desc: 'Calificación perfecta de satisfacción en nuestros clientes' },
