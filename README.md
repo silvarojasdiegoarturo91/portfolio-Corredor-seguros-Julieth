@@ -67,7 +67,7 @@ Visita http://localhost:3000
 | Variable | Descripción | Ejemplo |
 |----------|-------------|---------|
 | `DATABASE_URL` | URL de conexión PostgreSQL | `postgresql://...` |
-| `NEXT_PUBLIC_BASE_URL` | URL pública del sitio | `https://correodoreseguros.com` |
+| `NEXT_PUBLIC_BASE_URL` | URL pública del sitio | `https://juliethperezseguros.com` |
 | `SMTP_HOST` | Servidor SMTP | `smtp.gmail.com` |
 | `SMTP_PORT` | Puerto SMTP | `587` |
 | `SMTP_USER` | Usuario SMTP | `tu@gmail.com` |

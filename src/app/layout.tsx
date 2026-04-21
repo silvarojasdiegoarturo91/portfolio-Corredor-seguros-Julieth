@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    url: 'https://correodoreseguros.com',
+    url: 'https://juliethperezseguros.com',
     siteName: 'Corredor de Seguros Julieth',
     title: 'Corredor de Seguros Julieth | Protege lo que más amas',
     description: 'Especialistas en seguros de vida, salud, mascotas y hogar en España.',

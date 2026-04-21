@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const contactInfo = [
   { icon: '📱', title: 'WhatsApp', value: '+34 695 135 678', href: 'https://wa.me/34695135678' },
-  { icon: '✉️', title: 'Email', value: 'julieth@correodoreseguros.com', href: 'mailto:julieth@correodoreseguros.com' },
+  { icon: '✉️', title: 'Email', value: 'julieth@juliethperezseguros.com', href: 'mailto:julieth@juliethperezseguros.com' },
   { icon: '📍', title: 'Ubicación', value: 'España', href: null },
   { icon: '🕐', title: 'Horario', value: 'Lun-Vie: 9am - 7pm', href: null },
 ]
