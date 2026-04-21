@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { timingSafeEqual } from 'crypto'
 import { prisma } from '@/lib/prisma'
 
 export const metadata: Metadata = {
@@ -21,7 +22,13 @@ async function getLeads() {
 function checkAuth(password: string | null): boolean {
   const adminPassword = process.env.ADMIN_PASSWORD
   if (!adminPassword || !password) return false
-  return password === adminPassword
+  try {
+    const a = Buffer.from(password)
+    const b = Buffer.from(adminPassword)
+    return a.length === b.length && timingSafeEqual(a, b)
+  } catch {
+    return false
+  }
 }
 
 export default async function AdminPage({
