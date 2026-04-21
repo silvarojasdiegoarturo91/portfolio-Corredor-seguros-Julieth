@@ -38,9 +38,9 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get('authorization')
-  const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
+  const adminPassword = process.env.ADMIN_PASSWORD
 
-  if (!authHeader || authHeader !== `Bearer ${adminPassword}`) {
+  if (!adminPassword || !authHeader || authHeader !== `Bearer ${adminPassword}`) {
     return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
   }
 

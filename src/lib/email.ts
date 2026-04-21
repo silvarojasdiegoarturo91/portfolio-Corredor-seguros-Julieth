@@ -18,23 +18,38 @@ interface LeadEmailData {
   message?: string
 }
 
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 export async function sendLeadNotification(lead: LeadEmailData) {
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    console.log('Email not configured, skipping notification:', lead)
+    console.log('Email not configured, skipping notification')
     return
   }
+
+  const safeName = escapeHtml(lead.name)
+  const safeEmail = escapeHtml(lead.email)
+  const safePhone = escapeHtml(lead.phone)
+  const safeInsuranceType = escapeHtml(lead.insuranceType)
+  const safeMessage = lead.message ? escapeHtml(lead.message) : null
 
   await transporter.sendMail({
     from: process.env.SMTP_USER,
     to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER,
-    subject: `Nuevo Lead - ${lead.name} - ${lead.insuranceType}`,
+    subject: `Nuevo Lead - ${safeName} - ${safeInsuranceType}`,
     html: `
       <h2>Nuevo Lead Recibido</h2>
-      <p><strong>Nombre:</strong> ${lead.name}</p>
-      <p><strong>Email:</strong> ${lead.email}</p>
-      <p><strong>Teléfono:</strong> ${lead.phone}</p>
-      <p><strong>Tipo de Seguro:</strong> ${lead.insuranceType}</p>
-      ${lead.message ? `<p><strong>Mensaje:</strong> ${lead.message}</p>` : ''}
+      <p><strong>Nombre:</strong> ${safeName}</p>
+      <p><strong>Email:</strong> ${safeEmail}</p>
+      <p><strong>Teléfono:</strong> ${safePhone}</p>
+      <p><strong>Tipo de Seguro:</strong> ${safeInsuranceType}</p>
+      ${safeMessage ? `<p><strong>Mensaje:</strong> ${safeMessage}</p>` : ''}
     `,
   })
 }

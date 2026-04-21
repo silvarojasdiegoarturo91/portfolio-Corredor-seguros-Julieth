@@ -19,7 +19,8 @@ async function getLeads() {
 }
 
 function checkAuth(password: string | null): boolean {
-  const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
+  const adminPassword = process.env.ADMIN_PASSWORD
+  if (!adminPassword || !password) return false
   return password === adminPassword
 }
 
