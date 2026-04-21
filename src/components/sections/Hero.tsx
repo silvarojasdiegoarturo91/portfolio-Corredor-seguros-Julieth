@@ -7,7 +7,7 @@ export function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="max-w-3xl">
           <p className="text-green-200 font-semibold mb-4 tracking-wide uppercase text-sm">
-            ✓ Certificada · ✓ +10 años de experiencia · ✓ +500 clientes en España
+            ✓ Certificada · ✓ +10 años de experiencia · ✓ +50 clientes en España
           </p>
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
             Protege lo que<br />
@@ -27,7 +27,7 @@ export function Hero() {
           </div>
           <div className="mt-12 grid grid-cols-3 gap-6 text-center">
             {[
-              { value: '+500', label: 'Clientes Protegidos' },
+              { value: '+50', label: 'Clientes Protegidos' },
               { value: '+10', label: 'Años de Experiencia' },
               { value: '100%', label: 'Compromiso' },
             ].map((stat) => (
