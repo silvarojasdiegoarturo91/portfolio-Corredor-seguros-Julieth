@@ -3,8 +3,16 @@ import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'Sobre Nosotros',
-  description: 'Conoce la historia de Julieth, mediadora de seguros certificada con más de 10 años de experiencia en España.',
+  title: 'Sobre Mí – María Julieth Pérez Fernández',
+  description:
+    'Conoce a María Julieth Pérez Fernández, mediadora de seguros certificada con más de 10 años de experiencia protegiendo familias en España.',
+  keywords: [
+    'Maria Julieth Perez Fernandez',
+    'María Julieth Pérez Fernández',
+    'mediadora de seguros certificada',
+    'corredora de seguros España',
+  ],
+  alternates: { canonical: '/about' },
 }
 
 const trustBadges = [
@@ -52,7 +60,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Soy Julieth, mediadora de seguros certificada con más de 10 años de experiencia 
+                  Soy María Julieth Pérez Fernández, mediadora de seguros certificada con más de 10 años de experiencia 
                   ayudando a familias españolas a proteger lo que más aman.
                 </p>
                 <p>
@@ -76,7 +84,7 @@ export default function AboutPage() {
                 <div className="w-32 h-32 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-white text-4xl font-bold">J</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Julieth</h3>
+                <h3 className="text-2xl font-bold text-gray-900">María Julieth Pérez Fernández</h3>
                 <p className="text-green-600 font-semibold">Mediadora de Seguros Certificada</p>
                 <p className="text-gray-600 mt-2">España</p>
                 <div className="mt-4 flex justify-center space-x-1">

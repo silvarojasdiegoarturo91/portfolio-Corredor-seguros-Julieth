@@ -5,8 +5,10 @@ import { Button } from '@/components/ui/Button'
 import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Artículos y consejos sobre seguros, finanzas personales y protección familiar.',
+  title: 'Blog – Consejos de Seguros y Protección Familiar',
+  description:
+    'Artículos y guías sobre seguros de vida, salud, mascotas y hogar en España. Consejos de María Julieth Pérez Fernández, corredora de seguros certificada.',
+  alternates: { canonical: '/blog' },
 }
 
 const categories = ['Todos', 'Seguro de Vida', 'Seguro de Salud', 'Mascotas', 'Seguro de Hogar', 'Educación Financiera']

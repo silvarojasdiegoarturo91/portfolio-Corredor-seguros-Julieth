@@ -5,8 +5,10 @@ import { Card } from '@/components/ui/Card'
 import { LeadForm } from '@/components/forms/LeadForm'
 
 export const metadata: Metadata = {
-  title: 'Inicio | Corredor de Seguros Julieth',
-  description: 'Bienvenido a Corredor de Seguros Julieth. Protege lo que más amas con nuestras soluciones de seguro personalizadas.',
+  title: 'Inicio',
+  description:
+    'María Julieth Pérez Fernández, corredora de seguros certificada en España. Seguros de vida, salud, mascotas y hogar. Solicita tu presupuesto gratuito hoy.',
+  alternates: { canonical: '/' },
 }
 
 const testimonials = [

@@ -3,8 +3,17 @@ import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'Servicios',
-  description: 'Conoce todos nuestros servicios de seguros: vida, salud, mascotas y hogar.',
+  title: 'Servicios – Seguros de Vida, Salud, Mascotas y Hogar',
+  description:
+    'Descubre todos los seguros que ofrece María Julieth Pérez Fernández: seguro de vida, seguro de salud, seguro de mascotas y seguro de hogar en España.',
+  keywords: [
+    'seguro de vida España',
+    'seguro de salud familiar',
+    'seguro de mascotas',
+    'seguro de hogar',
+    'corredora de seguros',
+  ],
+  alternates: { canonical: '/services' },
 }
 
 const services = [

@@ -3,8 +3,10 @@ import { LeadForm } from '@/components/forms/LeadForm'
 import { Card } from '@/components/ui/Card'
 
 export const metadata: Metadata = {
-  title: 'Contacto',
-  description: 'Contáctanos para obtener tu presupuesto gratuito de seguros. Respuesta en menos de 24 horas.',
+  title: 'Contacto – Presupuesto de Seguro Gratuito',
+  description:
+    'Contacta con María Julieth Pérez Fernández para obtener tu presupuesto de seguros gratuito. Respuesta en menos de 24 horas. WhatsApp disponible.',
+  alternates: { canonical: '/contact' },
 }
 
 const contactInfo = [
