@@ -23,18 +23,18 @@ const trustBadges = [
 ]
 
 const partners = [
-  { name: 'AXA', logo: 'https://logo.clearbit.com/axa.com' },
-  { name: 'Mapfre', logo: 'https://logo.clearbit.com/mapfre.com' },
-  { name: 'Allianz', logo: 'https://logo.clearbit.com/allianz.com' },
-  { name: 'Zurich', logo: 'https://logo.clearbit.com/zurich.com' },
-  { name: 'Generali', logo: 'https://logo.clearbit.com/generali.com' },
-  { name: 'Mutua Madrileña', logo: 'https://logo.clearbit.com/mutua.es' },
-  { name: 'Sanitas', logo: 'https://logo.clearbit.com/sanitas.es' },
-  { name: 'Caser Seguros', logo: 'https://logo.clearbit.com/caser.es' },
-  { name: 'Helvetia', logo: 'https://logo.clearbit.com/helvetia.com' },
-  { name: 'Reale Seguros', logo: 'https://logo.clearbit.com/reale.es' },
-  { name: 'Línea Directa', logo: 'https://logo.clearbit.com/lineadirecta.com' },
-  { name: 'BBVA Seguros', logo: 'https://logo.clearbit.com/bbvaseguros.com' },
+  { name: 'AXA', initials: 'AXA', color: '#00008F', text: '#FFFFFF' },
+  { name: 'Mapfre', initials: 'MAP', color: '#CC0000', text: '#FFFFFF' },
+  { name: 'Allianz', initials: 'ALZ', color: '#003781', text: '#FFFFFF' },
+  { name: 'Zurich', initials: 'ZUR', color: '#0F4C9A', text: '#FFFFFF' },
+  { name: 'Generali', initials: 'GEN', color: '#CC0000', text: '#FFFFFF' },
+  { name: 'Mutua Madrileña', initials: 'MM', color: '#004A94', text: '#FFFFFF' },
+  { name: 'Sanitas', initials: 'SAN', color: '#E30613', text: '#FFFFFF' },
+  { name: 'Caser Seguros', initials: 'CAS', color: '#005CA9', text: '#FFFFFF' },
+  { name: 'Helvetia', initials: 'HEL', color: '#D50032', text: '#FFFFFF' },
+  { name: 'Reale Seguros', initials: 'REA', color: '#00833F', text: '#FFFFFF' },
+  { name: 'Línea Directa', initials: 'LD', color: '#FF6600', text: '#FFFFFF' },
+  { name: 'BBVA Seguros', initials: 'BBVA', color: '#004481', text: '#FFFFFF' },
 ]
 
 export default function AboutPage() {
@@ -125,12 +125,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {partners.map((partner) => (
               <div key={partner.name} className="bg-white rounded-lg p-5 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={partner.logo}
-                  alt={`Logo ${partner.name}`}
-                  className="h-12 w-auto object-contain"
-                />
+                <div
+                  className="h-14 w-28 rounded-lg flex items-center justify-center font-bold text-lg tracking-wide"
+                  style={{ backgroundColor: partner.color, color: partner.text }}
+                >
+                  {partner.initials}
+                </div>
                 <p className="font-semibold text-gray-700 text-sm">{partner.name}</p>
               </div>
             ))}
