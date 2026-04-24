@@ -109,7 +109,7 @@ const jsonLd = {
       availableLanguage: 'Spanish',
       priceRange: '€',
       telephone: '+34-695-135-678',
-      email: 'julieth@juliethperezseguros.com',
+      email: 'contacto@juliethperezseguros.com',
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'ES',

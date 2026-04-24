@@ -96,7 +96,7 @@ export function LeadForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {errors.general && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
           {errors.general}
         </div>
       )}
@@ -112,8 +112,8 @@ export function LeadForm() {
           value={formData.name}
           onChange={handleChange}
           placeholder="Tu nombre"
-          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
-            errors.name ? 'border-red-400 bg-red-50' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+            errors.name ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         />
         {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
@@ -130,8 +130,8 @@ export function LeadForm() {
           value={formData.email}
           onChange={handleChange}
           placeholder="tu@email.com"
-          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
-            errors.email ? 'border-red-400 bg-red-50' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+            errors.email ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         />
         {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
@@ -148,8 +148,8 @@ export function LeadForm() {
           value={formData.phone}
           onChange={handleChange}
           placeholder="+34 600 000 000"
-          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
-            errors.phone ? 'border-red-400 bg-red-50' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+            errors.phone ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         />
         {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
@@ -164,8 +164,8 @@ export function LeadForm() {
           name="insuranceType"
           value={formData.insuranceType}
           onChange={handleChange}
-          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors ${
-            errors.insuranceType ? 'border-red-400 bg-red-50' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+            errors.insuranceType ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         >
           <option value="">Selecciona una opción</option>
@@ -189,7 +189,7 @@ export function LeadForm() {
           onChange={handleChange}
           placeholder="Cuéntanos más sobre lo que necesitas..."
           rows={3}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors resize-none"
+          className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors resize-none bg-white/90"
         />
       </div>
 
