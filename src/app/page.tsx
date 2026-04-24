@@ -86,7 +86,7 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {testimonials.map((t) => (
-                <Card key={t.name} className="relative bg-white/10 border border-white/15 backdrop-blur-md text-left">
+                <Card key={t.name} glass className="relative text-left">
                   <div className="text-cyan-200 text-3xl mb-3">“</div>
                   <p className="text-slate-100 mb-5 italic">{t.text}</p>
                   <div className="flex items-center justify-between">
