@@ -4,65 +4,68 @@ import { Button } from '@/components/ui/Button'
 const services = [
   {
     id: 'vida',
-    icon: '❤️',
+    icon: '🫀',
     title: 'Seguro de Vida',
     description: 'Protege el futuro financiero de tu familia con coberturas desde fallecimiento hasta invalidez permanente.',
     features: ['Cobertura fallecimiento', 'Invalidez permanente', 'Enfermedades graves', 'Asistencia funeraria'],
-    color: 'text-red-500',
+    color: 'from-rose-500/25 to-pink-500/10 text-rose-600',
   },
   {
     id: 'salud',
-    icon: '🏥',
+    icon: '🩺',
     title: 'Seguro de Salud',
     description: 'Accede a la mejor atención médica sin preocuparte por los costes. Planes para toda la familia.',
     features: ['Hospitalización', 'Cirugías', 'Medicamentos', 'Consultas especializadas'],
-    color: 'text-blue-500',
+    color: 'from-blue-500/25 to-cyan-500/10 text-blue-600',
   },
   {
     id: 'mascotas',
-    icon: '🐾',
+    icon: '🐕',
     title: 'Seguro de Mascotas',
     description: 'Tu mascota merece la mejor atención. Cobertura veterinaria completa para perros y gatos.',
     features: ['Consultas veterinarias', 'Cirugías', 'Vacunas', 'Emergencias 24/7'],
-    color: 'text-yellow-500',
+    color: 'from-amber-500/25 to-orange-500/10 text-amber-600',
   },
   {
     id: 'hogar',
-    icon: '🏠',
+    icon: '🏡',
     title: 'Seguro de Hogar',
     description: 'Protege tu hogar y bienes contra incendio, robo, desastres naturales y más.',
     features: ['Incendio y explosión', 'Robo y hurto', 'Responsabilidad civil', 'Asistencia domiciliaria'],
-    color: 'text-green-500',
+    color: 'from-emerald-500/25 to-teal-500/10 text-emerald-600',
   },
 ]
 
 export function ServicesSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <p className="text-xs uppercase tracking-[0.18em] text-cyan-700 font-semibold mb-3">Coberturas principales</p>
+          <h2 className="font-display text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
             Nuestros Servicios
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">
             Soluciones de seguro completas para cada etapa de tu vida
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
             <Card key={service.id} hover className="flex flex-col">
-              <div className={`text-4xl mb-4 ${service.color}`}>{service.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-              <p className="text-gray-600 text-sm mb-4 flex-1">{service.description}</p>
-              <ul className="space-y-1 mb-4">
+              <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${service.color} text-2xl mb-4`}>
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{service.title}</h3>
+              <p className="text-slate-600 text-sm mb-4 flex-1">{service.description}</p>
+              <ul className="space-y-1.5 mb-4">
                 {service.features.map((feature) => (
-                  <li key={feature} className="text-sm text-gray-600 flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
+                  <li key={feature} className="text-sm text-slate-600 flex items-center">
+                    <span className="text-emerald-500 mr-2">✓</span>
                     {feature}
                   </li>
                 ))}
               </ul>
-              <Button href="/contact" variant="outline" size="sm" className="w-full">
+              <Button href="/contact" variant="outline" size="sm" className="w-full rounded-xl">
                 Ver presupuesto
               </Button>
             </Card>

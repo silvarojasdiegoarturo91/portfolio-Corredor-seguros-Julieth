@@ -1,9 +1,24 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { DM_Sans, Manrope } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppButton } from '@/components/sections/WhatsAppButton'
+
+const bodyFont = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const displayFont = Manrope({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  variable: '--font-display',
+  display: 'swap',
+})
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://juliethperezseguros.com'
 
@@ -110,7 +125,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className="font-sans antialiased">
+      <body className={`${bodyFont.variable} ${displayFont.variable} premium-page antialiased`}>
         <Script
           id="jsonld-person-business"
           type="application/ld+json"

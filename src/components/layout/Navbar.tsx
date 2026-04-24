@@ -17,17 +17,21 @@ export function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 border-b border-white/45 bg-white/78 backdrop-blur-xl shadow-[0_10px_30px_rgba(16,24,40,0.06)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-[72px]">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">JS</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-blue-600 shadow-[0_10px_22px_rgba(37,99,235,0.36)] flex items-center justify-center">
+              <span className="text-white font-bold text-sm">JP</span>
             </div>
-            <span className="font-bold text-gray-900 text-lg leading-tight">
-              Corredor de Seguros<br />
-              <span className="text-green-600 text-sm font-semibold">Julieth</span>
-            </span>
+            <div className="leading-tight">
+              <span className="font-display block text-slate-900 text-sm sm:text-base font-extrabold tracking-tight">
+                Julieth Seguros
+              </span>
+              <span className="text-[11px] sm:text-xs text-slate-500 font-semibold">
+                Corredora certificada en España
+              </span>
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -35,10 +39,10 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-semibold transition-colors ${
                   pathname === link.href
-                    ? 'text-green-600 border-b-2 border-green-600 pb-1'
-                    : 'text-gray-600 hover:text-green-600'
+                    ? 'text-cyan-700 border-b-2 border-cyan-600 pb-1'
+                    : 'text-slate-600 hover:text-cyan-700'
                 }`}
               >
                 {link.label}
@@ -46,14 +50,14 @@ export function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors"
+              className="inline-flex items-center rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(37,99,235,0.36)] hover:-translate-y-0.5 transition-all"
             >
               Solicitar presupuesto
             </Link>
           </div>
 
           <button
-            className="md:hidden p-2 rounded-md text-gray-600 hover:text-green-600"
+            className="md:hidden p-2 rounded-lg text-slate-600 hover:text-cyan-700 hover:bg-cyan-50"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -68,13 +72,13 @@ export function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-100 mt-2">
+          <div className="md:hidden pb-4 border-t border-slate-200/70 mt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block py-2 px-4 text-sm font-medium ${
-                  pathname === link.href ? 'text-green-600' : 'text-gray-600 hover:text-green-600'
+                className={`block py-2.5 px-4 text-sm font-medium ${
+                  pathname === link.href ? 'text-cyan-700' : 'text-slate-700 hover:text-cyan-700'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -83,7 +87,7 @@ export function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="block mt-2 mx-4 bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold text-center"
+              className="block mt-3 mx-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2.5 rounded-xl text-sm font-semibold text-center"
               onClick={() => setIsOpen(false)}
             >
               Solicitar presupuesto
