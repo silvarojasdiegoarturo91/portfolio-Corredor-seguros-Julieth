@@ -122,7 +122,6 @@ export default function AboutPage() {
                   src={partner.logo}
                   alt={`Logo ${partner.name}`}
                   className="h-12 w-auto object-contain"
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
                 />
                 <p className="font-semibold text-gray-700 text-sm">{partner.name}</p>
               </div>
