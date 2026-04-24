@@ -1,0 +1,55 @@
+import nodemailer from 'nodemailer'
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || 'smtp.gmail.com',
+  port: parseInt(process.env.SMTP_PORT || '587'),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+})
+
+interface LeadEmailData {
+  name: string
+  email: string
+  phone: string
+  insuranceType: string
+  message?: string
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
+export async function sendLeadNotification(lead: LeadEmailData) {
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.log('Email not configured, skipping notification')
+    return
+  }
+
+  const safeName = escapeHtml(lead.name)
+  const safeEmail = escapeHtml(lead.email)
+  const safePhone = escapeHtml(lead.phone)
+  const safeInsuranceType = escapeHtml(lead.insuranceType)
+  const safeMessage = lead.message ? escapeHtml(lead.message) : null
+
+  await transporter.sendMail({
+    from: process.env.SMTP_USER,
+    to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER,
+    subject: `Nuevo Lead - ${safeName} - ${safeInsuranceType}`,
+    html: `
+      <h2>Nuevo Lead Recibido</h2>
+      <p><strong>Nombre:</strong> ${safeName}</p>
+      <p><strong>Email:</strong> ${safeEmail}</p>
+      <p><strong>Teléfono:</strong> ${safePhone}</p>
+      <p><strong>Tipo de Seguro:</strong> ${safeInsuranceType}</p>
+      ${safeMessage ? `<p><strong>Mensaje:</strong> ${safeMessage}</p>` : ''}
+    `,
+  })
+}
