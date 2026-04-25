@@ -51,7 +51,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="relative border-t border-slate-800 mt-8 pt-8 text-sm text-center text-slate-500">
+        <div className="relative border-t border-slate-800 mt-8 pt-8 text-sm text-center text-slate-500 space-y-2">
+          <div className="flex justify-center gap-6">
+            <Link href="/politica-de-privacidad" className="hover:text-cyan-300 transition-colors">
+              Política de Privacidad
+            </Link>
+          </div>
           <p>© {new Date().getFullYear()} Corredor de Seguros Julieth. Todos los derechos reservados.</p>
         </div>
       </div>

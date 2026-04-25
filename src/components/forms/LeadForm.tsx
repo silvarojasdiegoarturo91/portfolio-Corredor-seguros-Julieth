@@ -198,7 +198,10 @@ export function LeadForm() {
       </Button>
 
       <p className="text-xs text-gray-500 text-center">
-        Al enviar este formulario, aceptas nuestra política de privacidad. 
+        Al enviar este formulario, aceptas nuestra{' '}
+        <a href="/politica-de-privacidad" className="underline hover:text-cyan-700" target="_blank" rel="noopener noreferrer">
+          política de privacidad
+        </a>.{' '}
         Nos comprometemos a responder en menos de 24 horas.
       </p>
     </form>
