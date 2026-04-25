@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
 import { DM_Sans, Manrope } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
@@ -136,6 +137,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   )
