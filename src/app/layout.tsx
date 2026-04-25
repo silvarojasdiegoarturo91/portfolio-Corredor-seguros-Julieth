@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { DM_Sans, Manrope } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppButton } from '@/components/sections/WhatsAppButton'
+import { MetaPixel } from '@/components/MetaPixel'
 
 const bodyFont = DM_Sans({
   subsets: ['latin'],
@@ -137,7 +139,9 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <MetaPixel />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
