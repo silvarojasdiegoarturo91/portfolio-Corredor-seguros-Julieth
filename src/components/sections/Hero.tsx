@@ -43,7 +43,7 @@ export function Hero() {
               ))}
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { value: '4.9/5', label: 'Valoración media' },
                 { value: '<24h', label: 'Tiempo de respuesta' },
