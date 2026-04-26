@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { JuliethLogo } from '@/components/ui/JuliethLogo'
 
 export function Footer() {
   return (
@@ -8,9 +9,7 @@ export function Footer() {
         <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center shadow-[0_10px_22px_rgba(37,99,235,0.3)]">
-                <span className="text-white font-bold text-sm">JP</span>
-              </div>
+              <JuliethLogo size={36} />
               <span className="font-display font-bold text-white text-lg">Julieth Seguros</span>
             </div>
             <p className="text-sm leading-relaxed mb-4">
