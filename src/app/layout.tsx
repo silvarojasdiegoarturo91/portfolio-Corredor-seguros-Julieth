@@ -27,6 +27,11 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://juliethperezseguro
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  icons: {
+    icon: '/icon',
+    shortcut: '/icon',
+    apple: '/icon',
+  },
   title: {
     default: 'María Julieth Pérez Fernández | Corredora de Seguros en España',
     template: '%s | María Julieth Pérez Fernández – Seguros',
