@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { JuliethLogo } from '@/components/ui/JuliethLogo'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -21,9 +22,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-blue-600 shadow-[0_10px_22px_rgba(37,99,235,0.36)] flex items-center justify-center">
-              <span className="text-white font-bold text-sm">JP</span>
-            </div>
+            <JuliethLogo size={40} />
             <div className="leading-tight">
               <span className="font-display block text-slate-900 text-sm sm:text-base font-extrabold tracking-tight">
                 Julieth Seguros
