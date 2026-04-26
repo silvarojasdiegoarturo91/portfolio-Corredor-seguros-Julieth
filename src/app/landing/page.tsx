@@ -182,8 +182,8 @@ export default function LandingPage() {
                     {t.initial}
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-800 text-sm">{t.name}</p>
-                    <p className="text-xs text-cyan-700">{t.insurance}</p>
+                    <p className="font-semibold text-white text-sm">{t.name}</p>
+                    <p className="text-xs text-cyan-300">{t.insurance}</p>
                   </div>
                 </div>
               </Card>
@@ -251,7 +251,7 @@ export default function LandingPage() {
       <footer className="py-6 text-center text-xs text-slate-500 border-t border-slate-200">
         <p>
           © {new Date().getFullYear()} María Julieth Pérez Fernández · Corredora de Seguros Certificada en España ·{' '}
-          <a href="/politica-de-privacidad" className="underline hover:text-cyan-700" target="_blank" rel="noopener noreferrer">
+          <a href="/politica-de-privacidad" className="underline hover:text-cyan-700">
             Política de privacidad
           </a>
         </p>
