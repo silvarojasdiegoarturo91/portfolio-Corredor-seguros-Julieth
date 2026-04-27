@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
+    google: process.env.GOOGLE_SITE_VERIFICATION ?? '3V04svbf9zRSxIa8cRVZqMig291BvX9J4q_MtmH2vZ4',
   },
 }
 
