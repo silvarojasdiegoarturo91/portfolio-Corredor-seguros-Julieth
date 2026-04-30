@@ -43,7 +43,7 @@ const services = [
     href: '/services/decesos',
     icon: '🕊️',
     title: 'Seguro de Decesos',
-    description: 'Evita que tu familia afuera los gastos funerarios. Cobertura completa del sepelio y trámites.',
+    description: 'Evita que tu familia afronte los gastos funerarios. Cobertura completa del sepelio y trámites.',
     features: ['Gastos de sepelio', 'Traslado del fallecido', 'Trámites administrativos', 'Repatriación internacional'],
     color: 'from-slate-500/25 to-slate-400/10 text-slate-600',
   },
@@ -62,7 +62,7 @@ export function ServicesSection() {
             Soluciones de seguro completas para cada etapa de tu vida
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service) => (
             <Card key={service.id} hover className="flex flex-col">
               <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${service.color} text-2xl mb-4`}>
