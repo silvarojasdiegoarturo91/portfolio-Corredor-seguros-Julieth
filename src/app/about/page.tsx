@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button'
 export const metadata: Metadata = {
   title: 'Sobre Mí – María Julieth Pérez Fernández',
   description:
-    'Conoce a María Julieth Pérez Fernández, mediadora de seguros certificada con más de 10 años de experiencia protegiendo familias en España.',
+    'Conoce a María Julieth Pérez Fernández, mediadora de seguros certificada con 2 años de experiencia vendiendo seguros en España y una sólida trayectoria de 12 años en el sector financiero y asegurador.',
   keywords: [
     'Maria Julieth Perez Fernandez',
     'María Julieth Pérez Fernández',
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
 
 const trustBadges = [
   // { icon: '🏅', title: 'Certificada', desc: 'Mediadora certificada e inscrita en el Registro de la DGSFP (Ministerio de Economía de España)' },
-  { icon: '📅', title: '+10 Años', desc: 'Más de una década de experiencia en el sector asegurador' },
+  { icon: '📅', title: '2 años en España', desc: '2 años de experiencia vendiendo seguros en España, con asesoría personalizada y cercana' },
+  { icon: '🌎', title: '12 años de trayectoria', desc: 'Más de 12 años en productos financieros y seguros en Colombia, experiencia que respalda cada consejo' },
   { icon: '👥', title: '+50 Clientes', desc: 'Cientos de familias protegidas en toda España' },
   { icon: '⭐', title: '5 Estrellas', desc: 'Calificación perfecta de satisfacción en nuestros clientes' },
 ]
@@ -60,8 +61,9 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Soy María Julieth Pérez Fernández, mediadora de seguros certificada con más de 10 años de experiencia 
-                  ayudando a familias españolas a proteger lo que más aman.
+                  Soy María Julieth Pérez Fernández, mediadora de seguros certificada. Llevo 2 años
+                  ayudando a familias en España a proteger lo que más aman, respaldada por una sólida
+                  trayectoria de más de 12 años trabajando en productos financieros y seguros en Colombia.
                 </p>
                 <p>
                   Mi vocación nació cuando vi de cerca cómo una familia quedó sin apoyo financiero 
@@ -69,8 +71,11 @@ export default function AboutPage() {
                   familia tuviera que pasar por eso.
                 </p>
                 <p>
-                  Trabajo con las mejores aseguradoras del mercado para ofrecerte las coberturas más 
-                  completas al mejor precio. Mi misión es simple: <strong>darte tranquilidad</strong>.
+                  Aunque mi experiencia en el sector asegurador colombiano no es directamente aplicable
+                  aquí, la formación, los valores y el conocimiento sobre gestión del riesgo que adquirí
+                  durante más de una década son la base de la asesoría que ofrezco hoy en España.
+                  Trabajo con las mejores aseguradoras del mercado español para ofrecerte las coberturas
+                  más completas al mejor precio. Mi misión es simple: <strong>darte tranquilidad</strong>.
                 </p>
               </div>
               <div className="mt-8">

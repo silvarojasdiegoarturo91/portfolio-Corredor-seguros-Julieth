@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/Button'
 const services = [
   {
     id: 'vida',
+    href: '/services/vida',
     icon: '🫀',
     title: 'Seguro de Vida',
     description: 'Protege el futuro financiero de tu familia con coberturas desde fallecimiento hasta invalidez permanente.',
@@ -12,6 +13,7 @@ const services = [
   },
   {
     id: 'salud',
+    href: '/services/salud',
     icon: '🩺',
     title: 'Seguro de Salud',
     description: 'Accede a la mejor atención médica sin preocuparte por los costes. Planes para toda la familia.',
@@ -20,6 +22,7 @@ const services = [
   },
   {
     id: 'mascotas',
+    href: '/services/mascotas',
     icon: '🐕',
     title: 'Seguro de Mascotas',
     description: 'Tu mascota merece la mejor atención. Cobertura veterinaria completa para perros y gatos.',
@@ -28,11 +31,21 @@ const services = [
   },
   {
     id: 'hogar',
+    href: '/services/hogar',
     icon: '🏡',
     title: 'Seguro de Hogar',
     description: 'Protege tu hogar y bienes contra incendio, robo, desastres naturales y más.',
     features: ['Incendio y explosión', 'Robo y hurto', 'Responsabilidad civil', 'Asistencia domiciliaria'],
     color: 'from-emerald-500/25 to-teal-500/10 text-emerald-600',
+  },
+  {
+    id: 'decesos',
+    href: '/services/decesos',
+    icon: '🕊️',
+    title: 'Seguro de Decesos',
+    description: 'Evita que tu familia afuera los gastos funerarios. Cobertura completa del sepelio y trámites.',
+    features: ['Gastos de sepelio', 'Traslado del fallecido', 'Trámites administrativos', 'Repatriación internacional'],
+    color: 'from-slate-500/25 to-slate-400/10 text-slate-600',
   },
 ]
 
@@ -49,7 +62,7 @@ export function ServicesSection() {
             Soluciones de seguro completas para cada etapa de tu vida
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <Card key={service.id} hover className="flex flex-col">
               <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${service.color} text-2xl mb-4`}>
@@ -65,8 +78,8 @@ export function ServicesSection() {
                   </li>
                 ))}
               </ul>
-              <Button href="/contact" variant="outline" size="sm" className="w-full rounded-xl">
-                Ver presupuesto
+              <Button href={service.href} variant="outline" size="sm" className="w-full rounded-xl">
+                Ver más detalles
               </Button>
             </Card>
           ))}
