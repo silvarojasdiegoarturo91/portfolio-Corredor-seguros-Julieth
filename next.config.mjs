@@ -2,14 +2,6 @@
 const nextConfig = {
   output: 'standalone',
   serverExternalPackages: ['@prisma/client', 'prisma'],
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'logo.clearbit.com',
-      },
-    ],
-  },
   async redirects() {
     return [
       {

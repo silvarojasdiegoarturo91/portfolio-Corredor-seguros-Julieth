@@ -25,18 +25,18 @@ const trustBadges = [
 ]
 
 const partners = [
-  { name: 'AXA', domain: 'axa.com', initials: 'AXA', color: '#00008F', text: '#FFFFFF' },
-  { name: 'Mapfre', domain: 'mapfre.com', initials: 'MAP', color: '#CC0000', text: '#FFFFFF' },
-  { name: 'Allianz', domain: 'allianz.com', initials: 'ALZ', color: '#003781', text: '#FFFFFF' },
-  { name: 'Zurich', domain: 'zurich.com', initials: 'ZUR', color: '#0F4C9A', text: '#FFFFFF' },
-  { name: 'Generali', domain: 'generali.com', initials: 'GEN', color: '#CC0000', text: '#FFFFFF' },
-  { name: 'Mutua Madrileña', domain: 'mutua-madrilena.es', initials: 'MM', color: '#004A94', text: '#FFFFFF' },
-  { name: 'Sanitas', domain: 'sanitas.es', initials: 'SAN', color: '#E30613', text: '#FFFFFF' },
-  { name: 'Caser Seguros', domain: 'caser.es', initials: 'CAS', color: '#005CA9', text: '#FFFFFF' },
-  { name: 'Helvetia', domain: 'helvetia.com', initials: 'HEL', color: '#D50032', text: '#FFFFFF' },
-  { name: 'Reale Seguros', domain: 'reale.es', initials: 'REA', color: '#00833F', text: '#FFFFFF' },
-  { name: 'Línea Directa', domain: 'lineadirecta.com', initials: 'LD', color: '#FF6600', text: '#FFFFFF' },
-  { name: 'BBVA Seguros', domain: 'bbva.es', initials: 'BBVA', color: '#004481', text: '#FFFFFF' },
+  { name: 'AXA', logoFile: 'axa.svg' },
+  { name: 'Mapfre', logoFile: 'mapfre.svg' },
+  { name: 'Allianz', logoFile: 'allianz.svg' },
+  { name: 'Zurich', logoFile: 'zurich.svg' },
+  { name: 'Generali', logoFile: 'generali.svg' },
+  { name: 'Mutua Madrileña', logoFile: 'mutua.svg' },
+  { name: 'Sanitas', logoFile: 'sanitas.svg' },
+  { name: 'Caser Seguros', logoFile: 'caser.svg' },
+  { name: 'Helvetia', logoFile: 'helvetia.svg' },
+  { name: 'Reale Seguros', logoFile: 'reale.svg' },
+  { name: 'Línea Directa', logoFile: 'linea-directa.svg' },
+  { name: 'BBVA Seguros', logoFile: 'bbva.svg' },
 ]
 
 export default function AboutPage() {
@@ -133,10 +133,7 @@ export default function AboutPage() {
               <div key={partner.name} className="bg-white rounded-lg p-5 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-3">
                 <PartnerLogo
                   name={partner.name}
-                  domain={partner.domain}
-                  initials={partner.initials}
-                  color={partner.color}
-                  textColor={partner.text}
+                  logoFile={partner.logoFile}
                 />
                 <p className="font-semibold text-gray-700 text-sm">{partner.name}</p>
               </div>
