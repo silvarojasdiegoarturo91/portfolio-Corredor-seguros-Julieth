@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { PartnerLogo } from '@/components/ui/PartnerLogo'
 
 export const metadata: Metadata = {
   title: 'Sobre Mí – María Julieth Pérez Fernández',
   description:
-    'Conoce a María Julieth Pérez Fernández, mediadora de seguros certificada con más de 10 años de experiencia protegiendo familias en España.',
+    'Conoce a María Julieth Pérez Fernández, mediadora de seguros certificada con 2 años de experiencia vendiendo seguros en España y una sólida trayectoria de 12 años en el sector financiero y asegurador.',
   keywords: [
     'Maria Julieth Perez Fernandez',
     'María Julieth Pérez Fernández',
@@ -17,24 +18,25 @@ export const metadata: Metadata = {
 
 const trustBadges = [
   // { icon: '🏅', title: 'Certificada', desc: 'Mediadora certificada e inscrita en el Registro de la DGSFP (Ministerio de Economía de España)' },
-  { icon: '📅', title: '+10 Años', desc: 'Más de una década de experiencia en el sector asegurador' },
+  { icon: '📅', title: '2 años en España', desc: '2 años de experiencia vendiendo seguros en España, con asesoría personalizada y cercana' },
+  { icon: '🌎', title: '12 años de trayectoria', desc: 'Más de 12 años en productos financieros y seguros en Colombia, experiencia que respalda cada consejo' },
   { icon: '👥', title: '+50 Clientes', desc: 'Cientos de familias protegidas en toda España' },
   { icon: '⭐', title: '5 Estrellas', desc: 'Calificación perfecta de satisfacción en nuestros clientes' },
 ]
 
 const partners = [
-  { name: 'AXA', initials: 'AXA', color: '#00008F', text: '#FFFFFF' },
-  { name: 'Mapfre', initials: 'MAP', color: '#CC0000', text: '#FFFFFF' },
-  { name: 'Allianz', initials: 'ALZ', color: '#003781', text: '#FFFFFF' },
-  { name: 'Zurich', initials: 'ZUR', color: '#0F4C9A', text: '#FFFFFF' },
-  { name: 'Generali', initials: 'GEN', color: '#CC0000', text: '#FFFFFF' },
-  { name: 'Mutua Madrileña', initials: 'MM', color: '#004A94', text: '#FFFFFF' },
-  { name: 'Sanitas', initials: 'SAN', color: '#E30613', text: '#FFFFFF' },
-  { name: 'Caser Seguros', initials: 'CAS', color: '#005CA9', text: '#FFFFFF' },
-  { name: 'Helvetia', initials: 'HEL', color: '#D50032', text: '#FFFFFF' },
-  { name: 'Reale Seguros', initials: 'REA', color: '#00833F', text: '#FFFFFF' },
-  { name: 'Línea Directa', initials: 'LD', color: '#FF6600', text: '#FFFFFF' },
-  { name: 'BBVA Seguros', initials: 'BBVA', color: '#004481', text: '#FFFFFF' },
+  { name: 'AXA', logoFile: 'axa.svg' },
+  { name: 'Mapfre', logoFile: 'mapfre.svg' },
+  { name: 'Allianz', logoFile: 'allianz.svg' },
+  { name: 'Zurich', logoFile: 'zurich.svg' },
+  { name: 'Generali', logoFile: 'generali.svg' },
+  { name: 'Mutua Madrileña', logoFile: 'mutua.svg' },
+  { name: 'Sanitas', logoFile: 'sanitas.svg' },
+  { name: 'Caser Seguros', logoFile: 'caser.svg' },
+  { name: 'Helvetia', logoFile: 'helvetia.svg' },
+  { name: 'Reale Seguros', logoFile: 'reale.svg' },
+  { name: 'Línea Directa', logoFile: 'linea-directa.svg' },
+  { name: 'BBVA Seguros', logoFile: 'bbva.svg' },
 ]
 
 export default function AboutPage() {
@@ -60,8 +62,9 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Soy María Julieth Pérez Fernández, mediadora de seguros certificada con más de 10 años de experiencia 
-                  ayudando a familias españolas a proteger lo que más aman.
+                  Soy María Julieth Pérez Fernández, mediadora de seguros certificada. Llevo 2 años
+                  ayudando a familias en España a proteger lo que más aman, respaldada por una sólida
+                  trayectoria de más de 12 años trabajando en productos financieros y seguros en Colombia.
                 </p>
                 <p>
                   Mi vocación nació cuando vi de cerca cómo una familia quedó sin apoyo financiero 
@@ -69,8 +72,11 @@ export default function AboutPage() {
                   familia tuviera que pasar por eso.
                 </p>
                 <p>
-                  Trabajo con las mejores aseguradoras del mercado para ofrecerte las coberturas más 
-                  completas al mejor precio. Mi misión es simple: <strong>darte tranquilidad</strong>.
+                  Aunque mi experiencia en el sector asegurador colombiano no es directamente aplicable
+                  aquí, la formación, los valores y el conocimiento sobre gestión del riesgo que adquirí
+                  durante más de una década son la base de la asesoría que ofrezco hoy en España.
+                  Trabajo con las mejores aseguradoras del mercado español para ofrecerte las coberturas
+                  más completas al mejor precio. Mi misión es simple: <strong>darte tranquilidad</strong>.
                 </p>
               </div>
               <div className="mt-8">
@@ -125,12 +131,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {partners.map((partner) => (
               <div key={partner.name} className="bg-white rounded-lg p-5 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-3">
-                <div
-                  className="h-14 w-28 rounded-lg flex items-center justify-center font-bold text-lg tracking-wide"
-                  style={{ backgroundColor: partner.color, color: partner.text }}
-                >
-                  {partner.initials}
-                </div>
+                <PartnerLogo
+                  name={partner.name}
+                  logoFile={partner.logoFile}
+                />
                 <p className="font-semibold text-gray-700 text-sm">{partner.name}</p>
               </div>
             ))}
