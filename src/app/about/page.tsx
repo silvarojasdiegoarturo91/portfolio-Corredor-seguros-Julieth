@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { PartnerLogo } from '@/components/ui/PartnerLogo'
 
 export const metadata: Metadata = {
   title: 'Sobre Mí – María Julieth Pérez Fernández',
@@ -24,18 +25,18 @@ const trustBadges = [
 ]
 
 const partners = [
-  { name: 'AXA', initials: 'AXA', color: '#00008F', text: '#FFFFFF' },
-  { name: 'Mapfre', initials: 'MAP', color: '#CC0000', text: '#FFFFFF' },
-  { name: 'Allianz', initials: 'ALZ', color: '#003781', text: '#FFFFFF' },
-  { name: 'Zurich', initials: 'ZUR', color: '#0F4C9A', text: '#FFFFFF' },
-  { name: 'Generali', initials: 'GEN', color: '#CC0000', text: '#FFFFFF' },
-  { name: 'Mutua Madrileña', initials: 'MM', color: '#004A94', text: '#FFFFFF' },
-  { name: 'Sanitas', initials: 'SAN', color: '#E30613', text: '#FFFFFF' },
-  { name: 'Caser Seguros', initials: 'CAS', color: '#005CA9', text: '#FFFFFF' },
-  { name: 'Helvetia', initials: 'HEL', color: '#D50032', text: '#FFFFFF' },
-  { name: 'Reale Seguros', initials: 'REA', color: '#00833F', text: '#FFFFFF' },
-  { name: 'Línea Directa', initials: 'LD', color: '#FF6600', text: '#FFFFFF' },
-  { name: 'BBVA Seguros', initials: 'BBVA', color: '#004481', text: '#FFFFFF' },
+  { name: 'AXA', domain: 'axa.com', initials: 'AXA', color: '#00008F', text: '#FFFFFF' },
+  { name: 'Mapfre', domain: 'mapfre.com', initials: 'MAP', color: '#CC0000', text: '#FFFFFF' },
+  { name: 'Allianz', domain: 'allianz.com', initials: 'ALZ', color: '#003781', text: '#FFFFFF' },
+  { name: 'Zurich', domain: 'zurich.com', initials: 'ZUR', color: '#0F4C9A', text: '#FFFFFF' },
+  { name: 'Generali', domain: 'generali.com', initials: 'GEN', color: '#CC0000', text: '#FFFFFF' },
+  { name: 'Mutua Madrileña', domain: 'mutua-madrilena.es', initials: 'MM', color: '#004A94', text: '#FFFFFF' },
+  { name: 'Sanitas', domain: 'sanitas.es', initials: 'SAN', color: '#E30613', text: '#FFFFFF' },
+  { name: 'Caser Seguros', domain: 'caser.es', initials: 'CAS', color: '#005CA9', text: '#FFFFFF' },
+  { name: 'Helvetia', domain: 'helvetia.com', initials: 'HEL', color: '#D50032', text: '#FFFFFF' },
+  { name: 'Reale Seguros', domain: 'reale.es', initials: 'REA', color: '#00833F', text: '#FFFFFF' },
+  { name: 'Línea Directa', domain: 'lineadirecta.com', initials: 'LD', color: '#FF6600', text: '#FFFFFF' },
+  { name: 'BBVA Seguros', domain: 'bbva.es', initials: 'BBVA', color: '#004481', text: '#FFFFFF' },
 ]
 
 export default function AboutPage() {
@@ -130,12 +131,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {partners.map((partner) => (
               <div key={partner.name} className="bg-white rounded-lg p-5 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-3">
-                <div
-                  className="h-14 w-28 rounded-lg flex items-center justify-center font-bold text-lg tracking-wide"
-                  style={{ backgroundColor: partner.color, color: partner.text }}
-                >
-                  {partner.initials}
-                </div>
+                <PartnerLogo
+                  name={partner.name}
+                  domain={partner.domain}
+                  initials={partner.initials}
+                  color={partner.color}
+                  textColor={partner.text}
+                />
                 <p className="font-semibold text-gray-700 text-sm">{partner.name}</p>
               </div>
             ))}
