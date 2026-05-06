@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-corredor-seguros-julieth",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22.12.0",
+      "nodeGypDependencies": true
+    }
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "npm install"
+}

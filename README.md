@@ -27,6 +27,18 @@ Portfolio profesional para corredora de seguros con captura de leads, panel de a
 
 ## Inicio Rápido
 
+### Prerrequisitos
+
+- Node.js 20.19+ (recomendado: 22.12.0)
+- npm 10+
+
+Si usas `nvm`, el proyecto incluye `.nvmrc`:
+
+```bash
+nvm install
+nvm use
+```
+
 ### 1. Clonar e instalar dependencias
 
 ```bash
