@@ -24,11 +24,15 @@ function getTransporter(): Transporter | null {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
+      connectionTimeout: 5000,
+      greetingTimeout: 5000,
     })
   }
   return transporter
+}
+
+function resetTransporter(): void {
+  transporter = null
 }
 
 function escapeHtml(text: string): string {
@@ -53,17 +57,22 @@ export async function sendLeadNotification(lead: LeadEmailData) {
   const safeInsuranceType = escapeHtml(lead.insuranceType)
   const safeMessage = lead.message ? escapeHtml(lead.message) : null
 
-  await mailer.sendMail({
-    from: process.env.SMTP_USER,
-    to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER,
-    subject: `Nuevo Lead - ${safeName} - ${safeInsuranceType}`,
-    html: `
-      <h2>Nuevo Lead Recibido</h2>
-      <p><strong>Nombre:</strong> ${safeName}</p>
-      <p><strong>Email:</strong> ${safeEmail}</p>
-      <p><strong>Teléfono:</strong> ${safePhone}</p>
-      <p><strong>Tipo de Seguro:</strong> ${safeInsuranceType}</p>
-      ${safeMessage ? `<p><strong>Mensaje:</strong> ${safeMessage}</p>` : ''}
-    `,
-  })
+  try {
+    await mailer.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER,
+      subject: `Nuevo Lead - ${safeName} - ${safeInsuranceType}`,
+      html: `
+        <h2>Nuevo Lead Recibido</h2>
+        <p><strong>Nombre:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Teléfono:</strong> ${safePhone}</p>
+        <p><strong>Tipo de Seguro:</strong> ${safeInsuranceType}</p>
+        ${safeMessage ? `<p><strong>Mensaje:</strong> ${safeMessage}</p>` : ''}
+      `,
+    })
+  } catch (error) {
+    resetTransporter()
+    throw error
+  }
 }
