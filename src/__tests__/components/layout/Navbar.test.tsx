@@ -36,7 +36,7 @@ vi.mock('@/components/ui/JuliethLogo', () => ({
 
 import { usePathname } from 'next/navigation'
 
-const mockUsePathname = usePathname as jest.Mock
+const mockUsePathname = usePathname as ReturnType<typeof vi.fn>
 
 beforeEach(() => {
   mockUsePathname.mockReturnValue('/')
