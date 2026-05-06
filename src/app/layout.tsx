@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { DM_Sans, Manrope } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppButton } from '@/components/sections/WhatsAppButton'
+import { MetaPixel } from '@/components/MetaPixel'
 
 const bodyFont = DM_Sans({
   subsets: ['latin'],
@@ -24,16 +27,24 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://juliethperezseguro
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  icons: {
+    icon: '/icon',
+    shortcut: '/icon',
+    apple: '/icon',
+  },
   title: {
-    default: 'María Julieth Pérez Fernández | Corredora de Seguros en España',
-    template: '%s | María Julieth Pérez Fernández – Seguros',
+    default: 'Julieth Pérez Seguros | Corredora de Seguros en España',
+    template: '%s | Julieth Pérez Seguros',
   },
   description:
-    'María Julieth Pérez Fernández, corredora y mediadora de seguros certificada en España. Seguros de vida, salud, mascotas y hogar con más de 10 años de experiencia. Presupuesto gratuito.',
+    'Julieth Pérez Seguros – María Julieth Pérez Fernández, corredora y mediadora de seguros certificada en España. Seguros de vida, salud, mascotas y hogar con más de 10 años de experiencia. Presupuesto gratuito.',
   keywords: [
+    'Julieth Perez seguros',
+    'Julieth Pérez seguros',
+    'julieth perez seguros',
     'Maria Julieth Perez Fernandez',
     'María Julieth Pérez Fernández',
-    'Julieth seguros',
+    'Julieth seguros España',
     'corredora de seguros',
     'corredor de seguros',
     'mediadora de seguros',
@@ -44,6 +55,8 @@ export const metadata: Metadata = {
     'seguro de hogar España',
     'seguro barato España',
     'presupuesto seguro gratis',
+    'juliethperezseguros',
+    'juliethperezseguros.com',
   ],
   authors: [{ name: 'María Julieth Pérez Fernández' }],
   creator: 'María Julieth Pérez Fernández',
@@ -54,14 +67,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_ES',
     url: BASE_URL,
-    siteName: 'Julieth Seguros',
-    title: 'María Julieth Pérez Fernández | Corredora de Seguros en España',
+    siteName: 'Julieth Pérez Seguros',
+    title: 'Julieth Pérez Seguros | Corredora de Seguros en España',
     description:
-      'Corredora de seguros certificada en España. Vida, salud, mascotas y hogar. Asesoría personalizada y presupuesto gratuito.',
+      'Julieth Pérez Seguros – corredora de seguros certificada en España. Vida, salud, mascotas y hogar. Asesoría personalizada y presupuesto gratuito.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'María Julieth Pérez Fernández | Corredora de Seguros',
+    title: 'Julieth Pérez Seguros | Corredora de Seguros',
     description: 'Seguros de vida, salud, mascotas y hogar en España. Presupuesto gratuito.',
   },
   robots: {
@@ -74,6 +87,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
     },
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION ?? '3V04svbf9zRSxIa8cRVZqMig291BvX9J4q_MtmH2vZ4',
+  },
 }
 
 const jsonLd = {
@@ -83,7 +99,7 @@ const jsonLd = {
       '@type': 'Person',
       '@id': `${BASE_URL}/#person`,
       name: 'María Julieth Pérez Fernández',
-      alternateName: ['Julieth Pérez', 'Julieth seguros', 'Maria Julieth Perez Fernandez'],
+      alternateName: ['Julieth Pérez', 'Julieth Pérez Seguros', 'Julieth Perez Seguros', 'julieth perez seguros', 'Julieth seguros', 'Maria Julieth Perez Fernandez'],
       jobTitle: 'Corredora y Mediadora de Seguros Certificada',
       description:
         'Mediadora de seguros certificada con más de 10 años de experiencia ayudando a familias en España.',
@@ -100,7 +116,7 @@ const jsonLd = {
     {
       '@type': 'InsuranceAgency',
       '@id': `${BASE_URL}/#business`,
-      name: 'Julieth Seguros',
+      name: 'Julieth Pérez Seguros',
       legalName: 'María Julieth Pérez Fernández – Corredora de Seguros',
       url: BASE_URL,
       description:
@@ -136,6 +152,9 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <MetaPixel />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

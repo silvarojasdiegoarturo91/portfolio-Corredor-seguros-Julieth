@@ -6,9 +6,9 @@ import { LeadForm } from '@/components/forms/LeadForm'
 import { Reveal } from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
-  title: 'Inicio',
+  title: 'Julieth Pérez Seguros – Corredora de Seguros Certificada en España',
   description:
-    'María Julieth Pérez Fernández, corredora de seguros certificada en España. Seguros de vida, salud, mascotas y hogar. Solicita tu presupuesto gratuito hoy.',
+    'Julieth Pérez Seguros: María Julieth Pérez Fernández, corredora de seguros certificada en España. Seguros de vida, salud, mascotas y hogar con más de 10 años de experiencia. Solicita tu presupuesto gratuito hoy.',
   alternates: { canonical: '/' },
 }
 

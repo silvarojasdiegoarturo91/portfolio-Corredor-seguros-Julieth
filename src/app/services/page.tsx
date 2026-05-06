@@ -3,14 +3,15 @@ import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'Servicios – Seguros de Vida, Salud, Mascotas y Hogar',
+  title: 'Servicios – Seguros de Vida, Salud, Mascotas, Hogar y Decesos',
   description:
-    'Descubre todos los seguros que ofrece María Julieth Pérez Fernández: seguro de vida, seguro de salud, seguro de mascotas y seguro de hogar en España.',
+    'Descubre todos los seguros que ofrece María Julieth Pérez Fernández: seguro de vida, seguro de salud, seguro de mascotas, seguro de hogar y seguro de decesos en España.',
   keywords: [
     'seguro de vida España',
     'seguro de salud familiar',
     'seguro de mascotas',
     'seguro de hogar',
+    'seguro de decesos',
     'corredora de seguros',
   ],
   alternates: { canonical: '/services' },
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 const services = [
   {
     id: 'vida',
+    href: '/services/vida',
     icon: '❤️',
     title: 'Seguro de Vida',
     description: 'El seguro de vida es la mejor forma de proteger el futuro financiero de tu familia. En caso de fallecimiento o invalidez, tu familia recibirá el capital asegurado para mantener su calidad de vida.',
@@ -27,13 +29,14 @@ const services = [
       'Invalidez total y permanente',
       'Enfermedades graves diagnosticadas',
       'Asistencia funeraria incluida',
-      'Planes desde 50€/mes',
+      'Planes desde 30€/mes',
     ],
     color: 'bg-red-50 border-red-200',
     iconBg: 'bg-red-100',
   },
   {
     id: 'salud',
+    href: '/services/salud',
     icon: '🏥',
     title: 'Seguro de Salud',
     description: 'Accede a la mejor atención médica privada sin preocuparte por los costes. Nuestros planes de salud cubren desde consultas de rutina hasta procedimientos complejos.',
@@ -49,6 +52,7 @@ const services = [
   },
   {
     id: 'mascotas',
+    href: '/services/mascotas',
     icon: '🐾',
     title: 'Seguro de Mascotas',
     description: 'Tu mascota es parte de la familia y merece la mejor atención. Nuestro seguro cubre los gastos veterinarios para que nunca tengas que elegir entre tu economía y la salud de tu mascota.',
@@ -64,6 +68,7 @@ const services = [
   },
   {
     id: 'hogar',
+    href: '/services/hogar',
     icon: '🏠',
     title: 'Seguro de Hogar',
     description: 'Protege tu hogar y todos tus bienes contra las contingencias de la vida. Desde incendios hasta robos, estamos aquí para que nunca pierdas lo que con tanto esfuerzo has construido.',
@@ -76,6 +81,22 @@ const services = [
     ],
     color: 'bg-green-50 border-green-200',
     iconBg: 'bg-green-100',
+  },
+  {
+    id: 'decesos',
+    href: '/services/decesos',
+    icon: '🕊️',
+    title: 'Seguro de Decesos',
+    description: 'Evita que tu familia tenga que afrontar los gastos funerarios en el momento más difícil. El seguro de decesos cubre todos los trámites y costes del sepelio.',
+    features: [
+      'Gastos completos de sepelio',
+      'Traslado del fallecido',
+      'Gestión de trámites administrativos',
+      'Repatriación internacional',
+      'Cobertura familiar disponible',
+    ],
+    color: 'bg-slate-50 border-slate-200',
+    iconBg: 'bg-slate-100',
   },
 ]
 
@@ -105,8 +126,8 @@ export default function ServicesPage() {
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{service.title}</h2>
                     <p className="text-gray-600 text-lg mb-4">{service.description}</p>
-                    <Button href="/contact" variant="primary">
-                      Solicitar presupuesto
+                    <Button href={service.href} variant="primary">
+                      Ver más detalles
                     </Button>
                   </div>
                   <div className={index % 2 !== 0 ? 'lg:order-1' : ''}>

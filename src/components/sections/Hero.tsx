@@ -12,7 +12,7 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs sm:text-sm font-semibold text-cyan-100 mb-6">
-              <span>+10 años de experiencia</span>
+              <span>2 años en España</span>
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
               <span>+50 clientes asesorados</span>
             </div>
@@ -86,6 +86,7 @@ export function Hero() {
               <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">Salud</span>
               <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">Mascotas</span>
               <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">Hogar</span>
+              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">Decesos</span>
             </div>
           </div>
         </div>

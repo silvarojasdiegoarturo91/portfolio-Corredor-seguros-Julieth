@@ -112,7 +112,7 @@ export function LeadForm() {
           value={formData.name}
           onChange={handleChange}
           placeholder="Tu nombre"
-          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 text-gray-900 ${
             errors.name ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         />
@@ -130,7 +130,7 @@ export function LeadForm() {
           value={formData.email}
           onChange={handleChange}
           placeholder="tu@email.com"
-          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 text-gray-900 ${
             errors.email ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         />
@@ -148,7 +148,7 @@ export function LeadForm() {
           value={formData.phone}
           onChange={handleChange}
           placeholder="+34 600 000 000"
-          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 text-gray-900 ${
             errors.phone ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         />
@@ -164,7 +164,7 @@ export function LeadForm() {
           name="insuranceType"
           value={formData.insuranceType}
           onChange={handleChange}
-          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 ${
+          className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors bg-white/90 text-gray-900 ${
             errors.insuranceType ? 'border-red-400 bg-red-50' : 'border-slate-300'
           }`}
         >
@@ -189,7 +189,7 @@ export function LeadForm() {
           onChange={handleChange}
           placeholder="Cuéntanos más sobre lo que necesitas..."
           rows={3}
-          className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors resize-none bg-white/90"
+          className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors resize-none bg-white/90 text-gray-900"
         />
       </div>
 
@@ -198,7 +198,10 @@ export function LeadForm() {
       </Button>
 
       <p className="text-xs text-gray-500 text-center">
-        Al enviar este formulario, aceptas nuestra política de privacidad. 
+        Al enviar este formulario, aceptas nuestra{' '}
+        <a href="/politica-de-privacidad" className="underline hover:text-cyan-700" target="_blank" rel="noopener noreferrer">
+          política de privacidad
+        </a>.{' '}
         Nos comprometemos a responder en menos de 24 horas.
       </p>
     </form>
