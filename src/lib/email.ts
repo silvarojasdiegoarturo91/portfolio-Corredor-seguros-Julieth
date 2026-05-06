@@ -24,8 +24,8 @@ function getTransporter(): Transporter | null {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      connectionTimeout: 5000,
-      greetingTimeout: 5000,
+      connectionTimeout: parseInt(process.env.SMTP_CONNECTION_TIMEOUT || '5000'),
+      greetingTimeout: parseInt(process.env.SMTP_GREETING_TIMEOUT || '5000'),
     })
   }
   return transporter
@@ -72,6 +72,7 @@ export async function sendLeadNotification(lead: LeadEmailData) {
       `,
     })
   } catch (error) {
+    console.error('SMTP connection error, resetting transporter:', error)
     resetTransporter()
     throw error
   }
