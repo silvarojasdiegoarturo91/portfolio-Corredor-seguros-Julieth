@@ -1,14 +1,5 @@
 import nodemailer from 'nodemailer'
-
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-})
+import type { Transporter } from 'nodemailer'
 
 interface LeadEmailData {
   name: string
@@ -16,6 +7,28 @@ interface LeadEmailData {
   phone: string
   insuranceType: string
   message?: string
+}
+
+let transporter: Transporter | null = null
+
+function getTransporter(): Transporter | null {
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    return null
+  }
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+    })
+  }
+  return transporter
 }
 
 function escapeHtml(text: string): string {
@@ -28,7 +41,8 @@ function escapeHtml(text: string): string {
 }
 
 export async function sendLeadNotification(lead: LeadEmailData) {
-  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+  const mailer = getTransporter()
+  if (!mailer) {
     console.log('Email not configured, skipping notification')
     return
   }
@@ -39,7 +53,7 @@ export async function sendLeadNotification(lead: LeadEmailData) {
   const safeInsuranceType = escapeHtml(lead.insuranceType)
   const safeMessage = lead.message ? escapeHtml(lead.message) : null
 
-  await transporter.sendMail({
+  await mailer.sendMail({
     from: process.env.SMTP_USER,
     to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER,
     subject: `Nuevo Lead - ${safeName} - ${safeInsuranceType}`,
