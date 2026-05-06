@@ -1,26 +1,27 @@
 /**
- * @jest-environment node
+ * @vitest-environment node
  */
+import { vi } from 'vitest'
 import { NextRequest } from 'next/server'
 
-jest.mock('@/lib/prisma', () => ({
+vi.mock('@/lib/prisma', () => ({
   prisma: {
     lead: {
-      create: jest.fn(),
-      findMany: jest.fn(),
+      create: vi.fn(),
+      findMany: vi.fn(),
     },
   },
 }))
 
-jest.mock('@/lib/email', () => ({
-  sendLeadNotification: jest.fn().mockResolvedValue(undefined),
+vi.mock('@/lib/email', () => ({
+  sendLeadNotification: vi.fn().mockResolvedValue(undefined),
 }))
 
 import { POST, GET } from '@/app/api/leads/route'
 import { prisma } from '@/lib/prisma'
 
-const mockCreate = prisma.lead.create as jest.Mock
-const mockFindMany = prisma.lead.findMany as jest.Mock
+const mockCreate = prisma.lead.create as ReturnType<typeof vi.fn>
+const mockFindMany = prisma.lead.findMany as ReturnType<typeof vi.fn>
 
 function makePostRequest(body: unknown): NextRequest {
   return new NextRequest('http://localhost/api/leads', {
@@ -38,7 +39,7 @@ function makeGetRequest(authHeader?: string): NextRequest {
 }
 
 beforeEach(() => {
-  jest.clearAllMocks()
+  vi.clearAllMocks()
 })
 
 describe('POST /api/leads', () => {
@@ -121,7 +122,7 @@ describe('POST /api/leads', () => {
 
   it('still returns 201 even if email notification fails', async () => {
     const { sendLeadNotification } = await import('@/lib/email')
-    ;(sendLeadNotification as jest.Mock).mockRejectedValueOnce(new Error('SMTP error'))
+    ;(sendLeadNotification as ReturnType<typeof vi.fn>).mockRejectedValueOnce(new Error('SMTP error'))
     mockCreate.mockResolvedValue({ id: 'cuid-999', ...validBody })
     const req = makePostRequest(validBody)
     const res = await POST(req)

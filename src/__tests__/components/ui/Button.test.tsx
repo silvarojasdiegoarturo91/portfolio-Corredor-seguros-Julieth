@@ -1,15 +1,16 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { vi } from 'vitest'
 import { Button } from '@/components/ui/Button'
 
-jest.mock('next/link', () => {
+vi.mock('next/link', () => {
   const MockLink = ({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) => (
     <a href={href} className={className}>
       {children}
     </a>
   )
   MockLink.displayName = 'MockLink'
-  return MockLink
+  return { default: MockLink }
 })
 
 describe('Button', () => {

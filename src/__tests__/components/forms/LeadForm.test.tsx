@@ -1,15 +1,16 @@
 import React from 'react'
 import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
 import { LeadForm } from '@/components/forms/LeadForm'
 
-const mockPush = jest.fn()
+const mockPush = vi.fn()
 
-jest.mock('next/navigation', () => ({
+vi.mock('next/navigation', () => ({
   useRouter: () => ({ push: mockPush }),
 }))
 
-jest.mock('@/components/ui/Button', () => ({
+vi.mock('@/components/ui/Button', () => ({
   Button: ({
     children,
     disabled,
@@ -56,12 +57,12 @@ function fillForm(data: Partial<typeof validFormData> = validFormData) {
 }
 
 beforeEach(() => {
-  jest.clearAllMocks()
-  global.fetch = jest.fn()
+  vi.clearAllMocks()
+  global.fetch = vi.fn()
 })
 
 afterEach(() => {
-  jest.restoreAllMocks()
+  vi.restoreAllMocks()
 })
 
 describe('LeadForm', () => {
@@ -162,7 +163,7 @@ describe('LeadForm', () => {
 
   describe('successful form submission', () => {
     it('calls fetch with correct data on valid submit', async () => {
-      ;(global.fetch as jest.Mock).mockResolvedValue({
+      ;(global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
         ok: true,
         json: () => Promise.resolve({ success: true, id: 'cuid-1' }),
       })
@@ -171,7 +172,7 @@ describe('LeadForm', () => {
       await fillForm()(user)
       await user.click(screen.getByRole('button', { name: /solicitar/i }))
       await waitFor(() => expect(global.fetch).toHaveBeenCalled())
-      const [url, options] = (global.fetch as jest.Mock).mock.calls[0]
+      const [url, options] = (global.fetch as ReturnType<typeof vi.fn>).mock.calls[0]
       expect(url).toBe('/api/leads')
       expect(options.method).toBe('POST')
       const body = JSON.parse(options.body)
@@ -180,7 +181,7 @@ describe('LeadForm', () => {
     })
 
     it('redirects to /thank-you on successful submission', async () => {
-      ;(global.fetch as jest.Mock).mockResolvedValue({
+      ;(global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
         ok: true,
         json: () => Promise.resolve({ success: true, id: 'cuid-1' }),
       })
@@ -193,7 +194,7 @@ describe('LeadForm', () => {
 
     it('shows loading text during submission', async () => {
       let resolveFetch: (value: unknown) => void
-      ;(global.fetch as jest.Mock).mockReturnValue(
+      ;(global.fetch as ReturnType<typeof vi.fn>).mockReturnValue(
         new Promise((resolve) => {
           resolveFetch = resolve
         })
@@ -212,7 +213,7 @@ describe('LeadForm', () => {
 
   describe('failed form submission', () => {
     it('shows server error message when API returns an error', async () => {
-      ;(global.fetch as jest.Mock).mockResolvedValue({
+      ;(global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
         ok: false,
         json: () => Promise.resolve({ error: 'Error del servidor' }),
       })
@@ -224,7 +225,7 @@ describe('LeadForm', () => {
     })
 
     it('shows fallback error when API response has no error message', async () => {
-      ;(global.fetch as jest.Mock).mockResolvedValue({
+      ;(global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
         ok: false,
         json: () => Promise.resolve({}),
       })
@@ -236,7 +237,7 @@ describe('LeadForm', () => {
     })
 
     it('shows connection error message when fetch throws', async () => {
-      ;(global.fetch as jest.Mock).mockRejectedValue(new Error('Network error'))
+      ;(global.fetch as ReturnType<typeof vi.fn>).mockRejectedValue(new Error('Network error'))
       const user = userEvent.setup()
       render(<LeadForm />)
       await fillForm()(user)

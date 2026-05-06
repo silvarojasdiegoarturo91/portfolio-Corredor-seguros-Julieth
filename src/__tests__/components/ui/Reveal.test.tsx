@@ -1,17 +1,18 @@
 import React from 'react'
 import { render, screen, act } from '@testing-library/react'
+import { vi } from 'vitest'
 import { Reveal } from '@/components/ui/Reveal'
 
 type IntersectionCallback = (entries: IntersectionObserverEntry[]) => void
 
 let intersectionCallback: IntersectionCallback | null = null
 
-const mockObserve = jest.fn()
-const mockUnobserve = jest.fn()
-const mockDisconnect = jest.fn()
+const mockObserve = vi.fn()
+const mockUnobserve = vi.fn()
+const mockDisconnect = vi.fn()
 
 beforeAll(() => {
-  global.IntersectionObserver = jest.fn((callback: IntersectionCallback) => {
+  global.IntersectionObserver = vi.fn((callback: IntersectionCallback) => {
     intersectionCallback = callback
     return {
       observe: mockObserve,
@@ -22,7 +23,7 @@ beforeAll(() => {
 })
 
 beforeEach(() => {
-  jest.clearAllMocks()
+  vi.clearAllMocks()
   intersectionCallback = null
 })
 
