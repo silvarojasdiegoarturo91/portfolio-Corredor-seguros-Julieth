@@ -11,15 +11,27 @@ interface LeadEmailData {
 
 let transporter: Transporter | null = null
 
+function parseBooleanEnv(value: string | undefined): boolean | undefined {
+  if (!value) return undefined
+  const normalized = value.trim().toLowerCase()
+  if (normalized === 'true' || normalized === '1' || normalized === 'yes') return true
+  if (normalized === 'false' || normalized === '0' || normalized === 'no') return false
+  return undefined
+}
+
 function getTransporter(): Transporter | null {
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
     return null
   }
   if (!transporter) {
+    const port = parseInt(process.env.SMTP_PORT || '587', 10)
+    const envSecure = parseBooleanEnv(process.env.SMTP_SECURE)
+    const secure = envSecure ?? port === 465
+
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false,
+      port,
+      secure,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
