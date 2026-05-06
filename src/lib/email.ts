@@ -11,24 +11,40 @@ interface LeadEmailData {
 
 let transporter: Transporter | null = null
 
+function parseBooleanEnv(value: string | undefined): boolean | undefined {
+  if (!value) return undefined
+  const normalized = value.trim().toLowerCase()
+  if (normalized === 'true' || normalized === '1' || normalized === 'yes') return true
+  if (normalized === 'false' || normalized === '0' || normalized === 'no') return false
+  return undefined
+}
+
 function getTransporter(): Transporter | null {
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
     return null
   }
   if (!transporter) {
+    const port = parseInt(process.env.SMTP_PORT || '587', 10)
+    const envSecure = parseBooleanEnv(process.env.SMTP_SECURE)
+    const secure = envSecure ?? port === 465
+
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false,
+      port,
+      secure,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
+      connectionTimeout: parseInt(process.env.SMTP_CONNECTION_TIMEOUT || '5000'),
+      greetingTimeout: parseInt(process.env.SMTP_GREETING_TIMEOUT || '5000'),
     })
   }
   return transporter
+}
+
+function resetTransporter(): void {
+  transporter = null
 }
 
 function escapeHtml(text: string): string {
@@ -53,17 +69,23 @@ export async function sendLeadNotification(lead: LeadEmailData) {
   const safeInsuranceType = escapeHtml(lead.insuranceType)
   const safeMessage = lead.message ? escapeHtml(lead.message) : null
 
-  await mailer.sendMail({
-    from: process.env.SMTP_USER,
-    to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER,
-    subject: `Nuevo Lead - ${safeName} - ${safeInsuranceType}`,
-    html: `
-      <h2>Nuevo Lead Recibido</h2>
-      <p><strong>Nombre:</strong> ${safeName}</p>
-      <p><strong>Email:</strong> ${safeEmail}</p>
-      <p><strong>Teléfono:</strong> ${safePhone}</p>
-      <p><strong>Tipo de Seguro:</strong> ${safeInsuranceType}</p>
-      ${safeMessage ? `<p><strong>Mensaje:</strong> ${safeMessage}</p>` : ''}
-    `,
-  })
+  try {
+    await mailer.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER,
+      subject: `Nuevo Lead - ${safeName} - ${safeInsuranceType}`,
+      html: `
+        <h2>Nuevo Lead Recibido</h2>
+        <p><strong>Nombre:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Teléfono:</strong> ${safePhone}</p>
+        <p><strong>Tipo de Seguro:</strong> ${safeInsuranceType}</p>
+        ${safeMessage ? `<p><strong>Mensaje:</strong> ${safeMessage}</p>` : ''}
+      `,
+    })
+  } catch (error) {
+    console.error('SMTP connection error, resetting transporter:', error)
+    resetTransporter()
+    throw error
+  }
 }
